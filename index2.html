@@ -1,0 +1,693 @@
+
+<!DOCTYPE html>
+<!--[if IE 8]> <html lang="en" class="ie8"> <![endif]-->
+<!--[if IE 9]> <html lang="en" class="ie9"> <![endif]-->
+<!--[if !IE]><!-->
+<html>
+<head>
+    <title>Mardan Development Authority</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <!--~ CSS FILES ~-->
+    <link type="text/css" rel="stylesheet" href="http://mda.gkp.pk/plugins/bootstrap-3.3.2-dist/css/bootstrap.min.css" />
+    <link type="text/css" rel="stylesheet" href="http://mda.gkp.pk/plugins/bootstrap-3.3.2-dist/css/bootstrap-theme.min.css" />
+    <link type="text/css" rel="stylesheet" href="http://mda.gkp.pk/plugins/font-awesome-4.2.0/css/font-awesome.min.css" />
+    <link type="text/css" rel="stylesheet" href="http://mda.gkp.pk/plugins/jquery-ui-1.11.2/jquery-ui.min.css" />
+    <link type="text/css" rel="stylesheet" href="http://mda.gkp.pk/plugins/jquery-ui-1.11.2/jquery-ui.structure.min.css" />
+    <link type="text/css" rel="stylesheet" href="http://mda.gkp.pk/plugins/jquery-ui-1.11.2/jquery-ui.theme.min.css" />
+    <link rel="stylesheet" type="text/css" href="http://mda.gkp.pk/css/frontend/style.css" />
+    <link rel="stylesheet" type="text/css" href="http://mda.gkp.pk/css/frontend/customGridStyles.css" />
+    <link rel="stylesheet" type="text/css" href="http://mda.gkp.pk/css/frontend/design_theme1.css" />
+    <link rel="stylesheet" type="text/css" href="http://mda.gkp.pk/css/frontend/forms_auto_resize.css" />
+    <script type="text/javascript" src="http://mda.gkp.pk/scripts/frontend/jquery-2.1.3.min.js"></script>
+
+    <script src="http://mda.gkp.pk/scripts/scripts.js" type="text/javascript"></script>
+    <script src="http://mda.gkp.pk/scripts/jquery.flexslider.js" type="text/javascript"></script>
+
+</head>
+<body><!---style="font-family: 'Open Sans'"--->
+<!-- MAIN CONTAINER -->
+<div class="main-container">
+<div class="container">
+<div class="row">
+<!-- HEADER -->
+<header>
+  <div class="container">
+    <div class="row"> 
+      
+      <!-- TOP MOST BAR -->
+      <div class="col-lg-12 top-most-bar clearfix">
+        <div class="col-lg-6 pull-right">
+          <ul class="list-unstyled list-inline pull-right">
+            <li><a href="http://mda.gkp.pk/">Home</a></li>
+            <li>-
+          </ul>
+        </div>
+      </div>
+      
+      <!-- HEADER MAIN -->
+      <div class="col-lg-12 main-header"> 
+        
+        <!-- LOGO -->
+        <div class="col-lg-8 col-sm-7 logo-container">
+          <style type="text/css">
+					
+		 #heading span{
+						 
+		 float: left; 
+		 margin: 34px 8px 0px 8px;
+		 vertical-align: middle;
+		 font-weight:bold;
+		 font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+		 color:white;
+		 }
+						 
+		 #heading span{
+							 
+		font-size:36px;
+		} 
+     
+        #logo_text
+        {
+            margin: 0px;
+            //padding: 0px;
+			padding: 0px 72px 0px 0px;
+            vertical-align: middle;
+			font-size:14px;
+			color:#060;
+			float: right;
+        }
+    </style>
+          <div style="float: left"> <img src="http://mda.gkp.pk/uploads/logo_image/1747913518logo.PNG" class="img-responsive" style="display:inline" /> </div>
+          <div id="heading"> <span >Mardan Development Authority</span> </div>
+          <div id="logo_text"> Government of Khyber Pakhtunkhwa </div>
+          <div style="clear: both"> </div>
+        </div>
+        
+        <!-- SEARCH BOX -->
+        <div class="col-lg-4 col-sm-5 clearfix">
+          <div class="col-lg-9 col-sm-11 top-search-box col-sm-pull-0 col-xs-pull-2 pull-right">
+            <input type="text" id="keysearch" name="keyword" class="col-lg-9 col-sm-9" placeholder="search here Tenders/Auctions" />
+            <span><a href="#" id="searchButton"><i class="fa fa-search"></i></a></span> </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    $(document).ready(function(){
+        $("#searchButton").click(function(){
+            var keyword = $("#keysearch").val();
+            document.location = 'http://mda.gkp.pk/index.php/cms/search_data/'+keyword;
+        });
+    });
+</script> 
+</header>
+            <!-- IMAGE SLIDER -->
+<div class="image-slider">
+        <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+        <!-- Indicators -->
+        <ol class="carousel-indicators">
+                        <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+                        <li data-target="#carousel-example-generic" data-slide-to="1" ></li>
+                        <li data-target="#carousel-example-generic" data-slide-to="2" ></li>
+                    </ol>
+
+        <!-- Wrapper for slides -->
+        <div class="carousel-inner" role="listbox">
+                        <div class="item  active ">
+                <img src="http://mda.gkp.pk/uploads/slider_image/1568779581IMG-20190807-WA0003.jpg">
+                <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12 carousel-caption clearfix">
+                    <h4>Mardan Development Authority Mardan</h4>
+                    <p>Plantation in Sheikhmaltoon Town Mardan...</p>
+                    <!--<p><a href="#" class="btn btn-primary btn-success btn-sm">readmore</a></p>-->
+                </div>
+            </div>
+                        <div class="item  ">
+                <img src="http://mda.gkp.pk/uploads/slider_image/1568780028IMG-20190808-WA0000.jpg">
+                <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12 carousel-caption clearfix">
+                    <h4>Plantation in Sheikhmaltoon Town</h4>
+                    <p>Plantation activities...</p>
+                    <!--<p><a href="#" class="btn btn-primary btn-success btn-sm">readmore</a></p>-->
+                </div>
+            </div>
+                        <div class="item  ">
+                <img src="http://mda.gkp.pk/uploads/slider_image/1598427089P1040004.JPG">
+                <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12 carousel-caption clearfix">
+                    <h4>MDA Mardan</h4>
+                    <p>cleanliness ...</p>
+                    <!--<p><a href="#" class="btn btn-primary btn-success btn-sm">readmore</a></p>-->
+                </div>
+            </div>
+            
+        </div>
+
+        <!-- Controls -->
+        <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+            <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+        </a>
+        <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+            <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+        </a>
+    </div>
+</div>
+            <!-- BODY CONTENT -->
+            <div class="body-content clearfix">
+
+                <!-- NAVIGATION -->
+
+<div class="col-lg-12">
+    <div class="top-navigation">
+
+        <nav class="navbar navbar-default">
+            <div class="container-fluid">
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                </div>
+
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <div  class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    <ul class="nav navbar-nav">
+                        
+                            <li class="MainMenu"><a href="index.html">HOME</a></li>
+
+                            <li class="MainMenu" ><a href=""class="dropdown-toggle" data-toggle="dropdown"">ABOUT US <span class="caret"></span></a>
+
+                                                                    <ul class="dropdown-menu" role="menu">
+                                                                                    <li><a href="about-mda.html">About MDA</a></li>
+                                                                                    <li><a href="mda-history.html">MDA History</a></li>
+                                        
+                                    </ul>
+                                                            </li>
+                        
+
+                            <li class="MainMenu" ><a href="services.html">SERVICES</a>
+
+                                                            </li>
+                        
+
+                            <li class="MainMenu" ><a href="projects.html">PROJECTS</a>
+
+                                                            </li>
+                        
+
+                            <li class="MainMenu" ><a href="#" onclick="alert('E-Tendering portal coming soon!')">E-TENDERING</a>
+
+                                                            </li>
+                        
+
+                            <li class="MainMenu" ><a href="gallery.html">GALLERY</a>
+
+                                                            </li>
+                        
+
+                            <li class="MainMenu" ><a href="download.html">DOWNLOADS</a>
+
+                                                            </li>
+                        
+
+                            <li class="MainMenu" ><a href="contact-us.html">CONTACT US</a>
+
+                                                            </li>
+                        
+                    </ul>
+                </div>
+                <!-- /.navbar-collapse -->
+            </div>
+            <!-- /.container-fluid -->
+        </nav>
+
+    </div>
+</div>
+
+<script>
+    $(document).ready(function(){
+        $(".MainMenu").on('click',function(){
+            $(this).css('bgcolor','green');
+        });
+    });
+</script><style>
+    .calendar{
+        width: 90%;
+        height:90%;
+    }
+    .satisfied {
+        border: 1px solid #096;
+        height: 25px;
+        padding: 0;
+    }
+    .notsatisfied {
+        border: 1px solid #f00;
+        height: 25px;
+        padding: 0;
+    }
+    .like_status {
+        background-color: #096;
+        height: 23px;
+    }
+    .not_satisfied {
+        background-color: #f00;
+        height: 23px;
+    }
+</style>
+                <!-- BODY -->
+                <div class="body-container">
+
+                    <!-- LEFT -->
+                    <div class="col-lg-9">
+                        <div class="left-area">
+                            <div class="padd-less">
+                                <div class="col-lg-4 col-md-6 col-sm-6 single-item">
+                                    <h4>Laws, Rules and Procedures</h4>
+                                    <img src="http://mda.gkp.pk/img/frontend/law-school.jpeg" class="col-md-12 col-sm-12 img-responsive" />
+                                    <p>
+                                         As agenda of the Provincial Government to provide good governance, responsive social service delivery, economic prosperity and peace for all, my ambition is to ensure the residents of Kanju T...&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br/>                                    </p>
+
+                                        <a href="http://mda.gkp.pk/law"><input type="button" value="Read More"></a>
+
+                                </div>
+
+                                <div class="col-lg-4 col-md-6 col-sm-6 single-item">
+                                    <h4>Tenders and Advertisements</h4>
+                                    <img src="http://mda.gkp.pk/img/frontend/tenders.jpg" class="col-md-12 col-sm-12 img-responsive" />
+                                    <p>
+                                        Tender Service Online to search best business opportunities and auctions in Government and Private Sector of Khyber Pakhtonkhwa Pakistan on mda.gkp.pk, that brings all latest ...
+                                                                            </p>
+                                    <a href="http://mda.gkp.pk/tenders">
+                                        <input type="button" value="Read More" />
+                                    </a>
+                                </div>
+
+                                <div class="col-lg-4 col-md-6 col-sm-6 single-item">
+                                    <h4>MDA Projects</h4>
+                                    <img src="http://mda.gkp.pk/img/frontend/project-manager.jpg" class="col-md-12 col-sm-12 img-responsive" />
+                                    <p>
+                                          Launching Phase-4 in Sheikhmaltoon Town Mardan  
+
+ 
+	 External Electrification in SMT 
+	 Arrangement for solid waste Management, Dumping Ground and Land fill. 
+	 Establishment Se...&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br/>                                    </p>
+                                    <a href="http://mda.gkp.pk/projects">
+                                        <input type="button" value="Read More" />
+                                        </a>
+                                </div>
+                            </div>
+
+
+
+                            <!-- BORDER -->
+                            <div class="col-lg-12 col-md-12 col-sm-12 border-design">
+                                <div class="clearfix"></div>
+                            </div>
+                            <!-- BORDER -->
+
+
+
+
+                            <div class="padd-less clearfix">
+                                <div class="col-lg-4 col-md-6 col-sm-6 single-item">
+                                    <h4>House Schemes</h4>
+                                    <img src="http://mda.gkp.pk/img/frontend/entrance.jpg" class="col-md-12 col-sm-12 img-responsive" />
+                                    <p>
+                                         &nbsp; 
+
+ MDA had developed three Phases of Sheikhmaltoon Town Mardan as per detail below:- 
+
+ &nbsp; 
+
+ Sheikhmaltoon Town Phase- I 
+Residential plots&nbsp;&nbsp; &nbsp;&nbs...&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;                                    </p>
+                                    <a href="http://mda.gkp.pk/schemes"> <input type="button" value="Read More" /></a>
+                                </div>
+
+                                <div class="col-lg-4 col-md-6 col-sm-6 single-item">
+                                    <h4>MDA Budget</h4>
+                                    <img src="http://mda.gkp.pk/img/frontend/budget_1.jpg" class="col-md-12 col-sm-12 img-responsive" />
+                                    <p>
+                                         &nbsp; &nbsp; &nbsp; Construction of Amir Muhammad Khan Mega Park Mardan&nbsp; &nbsp; &nbsp;&nbsp;&nbsp; &nbsp;( Required Dev: Sector-2010-11)( ADP No.884 )&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&...&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br/><br/>                                    </p>
+                                    <a href="http://mda.gkp.pk/budget">
+                                    <input type="button" value="Read More" />
+                                        </a>
+                                </div>
+
+                                <div class="col-lg-4 col-md-6 col-sm-6 single-item">
+                                    <h4>Reports</h4>
+                                    <img src="http://mda.gkp.pk/images/emergency.png" class="col-md-12 col-sm-12 img-responsive" />
+                                    <p>
+                                        ...&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;                                    </p>
+                                    <a href="http://mda.gkp.pk/reports">
+                                    <input type="button" value="Read More" />
+                                        </a>
+                                </div>
+                            </div>
+
+
+                            <div class="padd-less black-bg clearfix">
+
+                                <div class="col-lg-4 col-md-6 col-sm-6 single-item">
+                                    <h4>Event Calender</h4>
+                                    <div id="calendar" class="vote" style="width: 280px;height: 210px">
+                                        <table border="0" cellpadding="0" cellspacing="0" class="calendar">
+
+<tr>
+<th><a href="http://mda.gkp.pk/index.php/cms/index/2025/08">&lt;&lt;</a></th>
+<th colspan="5">September&nbsp;2025</th>
+<th><a href="http://mda.gkp.pk/index.php/cms/index/2025/10">&gt;&gt;</a></th>
+</tr>
+
+<tr>
+<th>Su</td><th>Mo</td><th>Tu</td><th>We</td><th>Th</td><th>Fr</td><th>Sa</td>
+</tr>
+
+<tr>
+<td>&nbsp;</td><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td>
+</tr>
+
+<tr>
+<td>7</td><td>8</td><td>9</td><td>10</td><td>11</td><td>12</td><td>13</td>
+</tr>
+
+<tr>
+<td>14</td><td>15</td><td>16</td><td>17</td><td><div class="highlight">18</div></td><td>19</td><td>20</td>
+</tr>
+
+<tr>
+<td>21</td><td>22</td><td>23</td><td>24</td><td>25</td><td>26</td><td>27</td>
+</tr>
+
+<tr>
+<td>28</td><td>29</td><td>30</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td>
+</tr>
+
+</table>                                    </div>
+
+                                </div>
+
+                                <div class="col-lg-4 col-md-6 col-sm-6 single-item">
+                                    <h4>Voting Poll</h4>
+                                    <div class="vote">
+                                        <div class="inner-container poll">
+                                            <div class="heading-bg-new"></div>
+                                            <p>Are you satisfied with financial benefits services provided?</p>
+                                            <input type="radio" name="options" value="1"  checked="checked"/>Satisfied
+                                            <br />
+                                            <input type="radio" name="options" value="2" />Not Satisfied
+                                            <input type="hidden" name="date" id="date" value="2025-09-18" />
+                                            <input type="hidden" name="ip" id="ip" value="" />
+                                            <br />
+                                            <input type="button" class="btn btn-primary btn-sm" value="Submit"  id="submit"/>
+                                            <input type="button" class="btn btn-primary btn-sm" value="View"  id="view"/>
+                                            <div id="voting_message" style="padding-left:10px;"></div>
+                                        </div>
+
+                                        <div class="inner-container percentage" style="display:none;">
+                                            <div class="heading-bg-new"></div>
+
+                                            Satisfied
+                                            <div class="col-lg-12">
+                                                <div class="col-lg-10 satisfied">
+                                                    <div class="like_status"></div>
+                                                </div>
+                                                <div class="col-lg-2 like_percent">25%</div>
+                                            </div>
+
+                                            <br />
+                                            Not Satisfied
+                                            <div class="col-lg-12" style="margin-bottom:20px;">
+                                                <div class="col-lg-10 notsatisfied">
+                                                    <div class="not_satisfied"></div>
+                                                </div>
+                                                <div class="col-lg-2 not_percent">25%</div></div>
+
+                                            <br/><br/>
+
+                                            <input type="button" class="btn btn-primary btn-sm" value="Back"  id="back"/>
+
+                                            <div id="voting_message" style="padding-left:10px;"></div>
+                                        </div>
+                                    </div>
+
+
+
+
+
+                                </div>
+
+                                <div class="col-lg-4 col-md-6 col-sm-6 single-item img-btn">
+                                    <h4>Emergency & DM</h4>
+                                    <img src="http://mda.gkp.pk/img/frontend/Emergency-dentist.jpg" class="col-lg-12 col-sm-12 img-responsive" />
+                                    <a href="http://mda.gkp.pk/emergency"><input type="button" value="Read More" /></a>
+                                </div>
+
+                            </div>
+
+
+                        </div>
+                    </div>
+
+                    <!-- RIGHT -->
+                    <div class="col-lg-3">
+                        <div class="right-area">
+                            <div class="col-lg-12 col-md-4 col-sm-6">
+                                <div class="public-notice clearfix">
+                                    <h4>News and Events</h4>
+                                    <ul class="list-unstyled" id="ticker" style="min-height: 360px;">
+                                                                                    <li class="news-item"><i class="fa fa-check-circle-o"></i>
+                                                <a href="http://mda.gkp.pk/detail/333">Strengthening of  District Development Authorities  KPK</a>
+                                            </li>
+                                                                                    <li class="news-item"><i class="fa fa-check-circle-o"></i>
+                                                <a href="http://mda.gkp.pk/detail/330">Auction of Residential Plots</a>
+                                            </li>
+                                                                                    <li class="news-item"><i class="fa fa-check-circle-o"></i>
+                                                <a href="http://mda.gkp.pk/detail/329">Quotation Notice</a>
+                                            </li>
+                                                                                    <li class="news-item"><i class="fa fa-check-circle-o"></i>
+                                                <a href="http://mda.gkp.pk/detail/327">Corrigendum</a>
+                                            </li>
+                                                                                    <li class="news-item"><i class="fa fa-check-circle-o"></i>
+                                                <a href="http://mda.gkp.pk/detail/318">Auction Notice for 11 Kanal Commercial Land</a>
+                                            </li>
+                                                                                    <li class="news-item"><i class="fa fa-check-circle-o"></i>
+                                                <a href="http://mda.gkp.pk/detail/320">Sealed Quotation for installation of Facial Reconition System 111</a>
+                                            </li>
+                                                                            </ul>
+                                    <a href="http://mda.gkp.pk/notice">
+                                    <input type="button" value="Read More" style="margin-left: 10px;" />
+                                    </a>
+                                </div>
+                            </div>
+
+                            <div class="col-lg-12 col-md-4 col-sm-6">
+                                <div class="quick-links clearfix">
+                                    <h4>Quick Links</h4>
+                                    <ul class="list-unstyled">
+                                                                                    <li><a href="http://sdda.gkp.pk/" target="_blank">Swat District  Development Authority Swat</a></li>
+                                                                                    <li><a href="http://www.kpese.gov.pk/" target="_blank">Elementary & Secondary Education Department</a></li>
+                                                                                    <li><a href="http://crckp.gov.pk" target="_blank">Complaint & Redressel Unit: Form</a></li>
+                                                                                    <li><a href="http://kppolice.gov.pk/" target="_blank">Khyber Pakhtunkhwa Police - Official Portal</a></li>
+                                                                                    <li><a href="http://lgkp.gov.pk/" target="_blank">Local Government</a></li>
+                                                                            </ul>
+                                </div>
+                            </div>
+
+                            <div class="col-lg-12 col-md-4 col-sm-6">
+                                <div class="login clearfix">
+                                    <h4>CONTRACTOR LOGIN</h4>
+                                    <form target="_blank" name="form1" method="post" action="http://mda.gkp.pk/tms/login_contractor_controller/validate_user">
+                                    <input type="text" name="username" placeholder="username" required=""/>
+                                    <input type="password" name="password" placeholder="password" required=""/>
+                                    <input type="checkbox" /><span>Remember Me</span><br />
+                                    <input type="submit" class="btn btn-default" value="Login" /><br />
+                                    <!--<a href="#">Forgot Password</a>-->
+                                    </form>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- FOOTER -->
+           <footer class="clearfix">
+
+    <div class="footer-inner clearfix">
+        <div class="col-lg-3 col-md-3 col-sm-6 single-footer-content">
+            <h5>About Us</h5>
+            <ul class="list-unstyled">
+                                    <li><i class="fa fa-caret-square-o-right"></i>
+                        <!--<a href=""></a></li>-->
+                        <a href="http://mda.gkp.pk/get/About-MDA">About MDA</a></li>
+                                    <li><i class="fa fa-caret-square-o-right"></i>
+                        <!--<a href=""></a></li>-->
+                        <a href="http://mda.gkp.pk/get/MDA-History">MDA History</a></li>
+                            </ul>
+        </div>
+
+        <div class="col-lg-3 col-md-3 col-sm-6 single-footer-content">
+            <h5>Map</h5>
+            <ul class="list-unstyled">
+                <div class="footer-content contacts-area">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3301.978389641318!2d72.03431960978702!3d34.14689499502439!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x38decbf0046a2e57%3A0xadc573de2740d94d!2sMardan+Development+Authority+(MDA)!5e0!3m2!1sen!2sus!4v1424841582411" width="250" height="170" frameborder="0" style="border:0"></iframe>
+                    <!--<iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d837010.3014217555!2d72.5619049795875!3d34.96734736959349!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2s!4v1415260536585" width="250" height="170" frameborder="0" style="border:0"></iframe>-->
+                </div>
+            </ul>
+        </div>
+
+        <div class="col-lg-3 col-md-3 col-sm-6 single-footer-content">
+            <h5>Resource Links</h5>
+            <ul class="list-unstyled">
+                <li><i class="fa fa-caret-square-o-right"></i>
+                    <a href="http://mda.gkp.pk/notice">Public Notices</a></li>
+                <li><i class="fa fa-caret-square-o-right"></i>
+                    <a href="http://mda.gkp.pk/reports">Reports</a></li>
+                <li><i class="fa fa-caret-square-o-right"></i>
+                    <a href="http://mda.gkp.pk/schemes">Hosing Scheme</a></li>
+                <li><i class="fa fa-caret-square-o-right"></i>
+                    <a href="http://mda.gkp.pk/projects">MDA Projects</a></li>
+                <li><i class="fa fa-caret-square-o-right"></i>
+                    <a href="http://mda.gkp.pk/Contact-us">Contact Us</a>
+                </li>
+            </ul>
+        </div>
+
+        <div class="col-lg-3 col-md-3 col-sm-6 single-footer-content">
+            <h5>Contacts</h5>
+            <ul class="list-unstyled">
+                <li><i class="fa fa-caret-square-o-right"></i>
+                    <a href="#"> Sector-F Sheikh Maltoon Town Mardan Pakistan </a>
+                </li>
+                                <li>
+                    <i class="fa fa-caret-square-o-right"></i>
+                    <a href="#"> Director Office (0937)9230433 
+
+ UADA Exchange (0937)9230434 
+
+ Fax  (0937)9230435 
+
+   
+</a>
+                </li>
+                <li>
+                    <i class="fa fa-caret-square-o-right"></i>
+                    <a href="#"></a>
+                </li>
+                <li>
+                    <i class="fa fa-caret-square-o-right"></i>
+                    <a href="#"> Email Address: uada.m@yahoo.com 
+</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="col-lg-7 col-md-8 bottom-most-bar">
+        <p>
+            <i class="fa fa-copyright"></i>
+            Copyrights 2015. &nbsp;All Rights Reserved by Mardan Development Authority.
+        </p>
+    </div>
+
+</footer>
+
+</div>
+</div>
+</div>
+
+<!-- SCRIPTS -->
+<!--<script type="text/javascript" src="scripts/frontend/jquery-2.1.3.min.js"></script>-->
+<script type="text/javascript" src="http://mda.gkp.pk/plugins/jquery-ui-1.11.2/jquery-ui.min.js"></script>
+<script type="text/javascript" src="http://mda.gkp.pk/plugins/bootstrap-3.3.2-dist/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="http://mda.gkp.pk/scripts/frontend/custom.js"></script>
+<script type="text/javascript" src="http://mda.gkp.pk/scripts/jquery.form.js"></script>
+</body>
+
+</html>
+<script type="text/javascript">
+
+    $('#submit').click(function(){
+
+        var vote=$("[name='options']:checked").val();
+        var date=$('#date').val();
+        var ip=$('#ip').val();
+
+        $.ajax({
+            type:"POST",
+            url:"http://mda.gkp.pk/index.php/cms/voting",
+            data:'vote='+vote+'&date='+date+'&ip='+ip,
+            success:function(result)
+            {
+                if(result==0)
+                {
+                    $('#voting_message').html('You have already voted for website');
+                    $('#voting_message').css('color','#f00');
+                    // setTimeout(function(){$('#voting_message').hide()}, 3000);
+                }
+                else if(result==1)
+                {
+                    $('#voting_message').html('Thank you for your voting');
+                    $('#voting_message').css('color','#066');
+                    //setTimeout(function(){$('#voting_message').hide()}, 3000);
+                }
+                else
+                {
+                    $('#voting_message').html('Error Ocurred while submittion');
+                    $('#voting_message').css('color','#f00');
+                    //setTimeout(function(){$('#voting_message').hide()}, 3000);
+                }
+
+            }
+
+        });
+    });
+
+
+    $('#view').click(function(){
+
+        $('.poll').hide();
+        $('.percentage').show();
+        $('#voting_message').html('');
+        $.ajax({
+            type:"POST",
+            url:'http://mda.gkp.pk/index.php/cms/voting_details',
+            dataType:'json',
+            success:function(result)
+            {
+                $.each(result,function(key,value){
+                    if(key==='satisfied')
+                    {
+                        $('.like_status').css('width',value+'%');
+                        $('.like_percent').html(value+'%');
+                    }
+                    else if(key==='notsatisfied')
+                    {
+                        $('.not_satisfied').css('width',value+'%');
+                        $('.not_percent').html(value+'%');
+                    }
+
+
+                });
+            }
+        });
+
+    });
+
+    $('#back').click(function(){
+
+        $('.poll').show();
+        $('.percentage').hide();
+
+    });
+</script>

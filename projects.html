@@ -1,0 +1,609 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projects - Mardan Development Authority - Government of KPK</title>
+    <meta name="description" content="Explore development projects and initiatives by Mardan Development Authority - Government of KPK.">
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Font Awesome CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <!-- Custom Tailwind Configuration -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'kpk-green': '#2d5016',
+                        'kpk-light-green': '#4ade80',
+                        'kpk-dark': '#1f2937',
+                        'gov-blue': '#1e40af'
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+        
+        body {
+            font-family: 'Inter', system-ui, -apple-system, sans-serif;
+            line-height: 1.6;
+        }
+        
+        .government-header {
+            background: linear-gradient(135deg, #2d5016 0%, #059669 50%, #10b981 100%);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .government-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('https://media.istockphoto.com/id/1874045716/photo/takht-i-bahi-buddhist-monastery-in-mardan-pakistan.jpg?s=612x612&w=0&k=20&c=KQOsUGn8c0GCbDZYW5EPzHVwmqHe3qE_rfh8qIRBcEE=') center/cover;
+            opacity: 0.1;
+            z-index: 0;
+        }
+        
+        .government-header > * {
+            position: relative;
+            z-index: 1;
+        }
+        
+        .navbar-shadow {
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+        }
+        
+        .project-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+        }
+        
+        .status-badge {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            border-radius: 9999px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.025em;
+        }
+        
+        .status-ongoing { background-color: #3b82f6; color: white; }
+        .status-completed { background-color: #10b981; color: white; }
+        .status-planned { background-color: #f59e0b; color: white; }
+        .status-under-review { background-color: #8b5cf6; color: white; }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Top Bar -->
+    <div class="bg-gray-900 text-white py-3 border-b border-gray-700">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col sm:flex-row justify-between items-center gap-2">
+                <div class="flex flex-col sm:flex-row space-y-2 sm:space-y-0 sm:space-x-6">
+                    <span class="flex items-center text-sm font-medium">
+                        <i class="fas fa-phone mr-2 text-green-400"></i> +92 937 9230433
+                    </span>
+                    <span class="flex items-center text-sm font-medium">
+                        <i class="fas fa-envelope mr-2 text-green-400"></i> info@mda.gkp.pk
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <header class="government-header text-white">
+        <div class="container mx-auto px-4 py-8 md:py-12">
+            <div class="flex flex-col xl:flex-row items-center justify-between gap-8">
+                <!-- Logo Section -->
+                <div class="flex flex-col sm:flex-row items-center text-center sm:text-left">
+                    <div class="relative mb-4 sm:mb-0 sm:mr-6">
+                        <img src="http://mda.gkp.pk/uploads/logo_image/1747913518logo.PNG" 
+                             alt="KPK Development Authority Official Logo" 
+                             class="w-24 h-24 md:w-28 md:h-28 object-contain bg-white rounded-xl shadow-2xl p-2 border-4 border-green-200">
+                    </div>
+                    <div>
+                        <h1 class="text-2xl sm:text-3xl lg:text-4xl xl:text-5xl font-bold mb-2 leading-tight">
+                            Mardan Development Authority
+                        </h1>
+                        <p class="text-sm sm:text-base lg:text-lg text-green-200 font-medium">
+                            Government of Khyber Pakhtunkhwa
+                        </p>
+                    </div>
+                </div>
+                
+                <!-- Government Info -->
+                <div class="hidden lg:block text-center xl:text-right">
+                    <div class="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20">
+                        <h3 class="text-lg font-bold mb-3 text-green-100">Official Authority</h3>
+                        <div class="space-y-2 text-sm">
+                            <p class="flex items-center justify-center xl:justify-end">
+                                <i class="fas fa-building mr-2 text-green-300"></i>
+                                Ministry of Local Government
+                            </p>
+                            <p class="flex items-center justify-center xl:justify-end">
+                                <i class="fas fa-map-marker-alt mr-2 text-green-300"></i>
+                                Mardan, Khyber Pakhtunkhwa
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Navigation Menu -->
+    <nav class="bg-white navbar-shadow sticky top-0 z-40">
+        <div class="container mx-auto px-4">
+            <div class="flex items-center justify-between">
+                <!-- Mobile Menu Button -->
+                <button id="mobileMenuBtn" class="lg:hidden p-3 text-gray-600 hover:text-kpk-green transition-colors">
+                    <i class="fas fa-bars text-xl"></i>
+                </button>
+                
+                <!-- Desktop Navigation -->
+                <ul class="hidden lg:flex items-center space-x-0 py-0 w-full justify-center">
+                    <li><a href="index.html" class="text-gray-700 hover:text-kpk-green font-semibold px-6 py-5 transition-all duration-300 hover:bg-green-50">HOME</a></li>
+                    <li class="relative group">
+                        <a href="#" class="text-gray-700 hover:text-kpk-green font-semibold flex items-center px-6 py-5 transition-all duration-300 hover:bg-green-50">
+                            ABOUT US <i class="fas fa-chevron-down ml-2 text-xs"></i>
+                        </a>
+                        <ul class="absolute top-full left-0 bg-white shadow-xl rounded-lg py-3 w-52 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50 border border-gray-200">
+                            <li><a href="about-mda.html" class="block px-6 py-3 text-gray-600 hover:bg-kpk-light-green hover:text-white transition-colors">About MDA</a></li>
+                            <li><a href="mda-history.html" class="block px-6 py-3 text-gray-600 hover:bg-kpk-light-green hover:text-white transition-colors">History</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="services.html" class="text-gray-700 hover:text-kpk-green font-semibold px-6 py-5 transition-all duration-300 hover:bg-green-50">SERVICES</a></li>
+                    <li><a href="projects.html" class="text-kpk-green bg-green-50 font-semibold px-6 py-5 transition-all duration-300">PROJECTS</a></li>
+                    <li><a href="#" class="text-gray-700 hover:text-kpk-green font-semibold px-6 py-5 transition-all duration-300 hover:bg-green-50">E-TENDERING</a></li>
+                    <li><a href="gallery.html" class="text-gray-700 hover:text-kpk-green font-semibold px-6 py-5 transition-all duration-300 hover:bg-green-50">GALLERY</a></li>
+                    <li><a href="download.html" class="text-gray-700 hover:text-kpk-green font-semibold px-6 py-5 transition-all duration-300 hover:bg-green-50">DOWNLOADS</a></li>
+                    <li><a href="contact-us.html" class="text-gray-700 hover:text-kpk-green font-semibold px-6 py-5 transition-all duration-300 hover:bg-green-50">CONTACT US</a></li>
+                </ul>
+
+                <!-- Mobile Menu -->
+                <div id="mobileMenu" class="lg:hidden fixed top-0 left-0 w-full h-full bg-white z-50 transform -translate-x-full transition-transform duration-300">
+                    <div class="p-6 border-b border-gray-200 bg-gradient-to-r from-kpk-green to-green-600">
+                        <div class="flex justify-between items-center">
+                            <h3 class="text-xl font-bold text-white">Navigation Menu</h3>
+                            <button id="closeMobileMenu" class="text-white hover:text-green-200 p-2">
+                                <i class="fas fa-times text-2xl"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <ul class="p-6 space-y-6">
+                        <li><a href="index.html" class="block text-gray-700 hover:text-kpk-green font-semibold text-lg py-3 border-b border-gray-100 transition-colors">HOME</a></li>
+                        <li><a href="about-mda.html" class="block text-gray-700 hover:text-kpk-green font-semibold text-lg py-3 border-b border-gray-100 transition-colors">ABOUT MDA</a></li>
+                        <li><a href="mda-history.html" class="block text-gray-700 hover:text-kpk-green font-semibold text-lg py-3 border-b border-gray-100 transition-colors">HISTORY</a></li>
+                        <li><a href="services.html" class="block text-gray-700 hover:text-kpk-green font-semibold text-lg py-3 border-b border-gray-100 transition-colors">SERVICES</a></li>
+                        <li><a href="projects.html" class="block text-kpk-green font-semibold text-lg py-3 border-b border-gray-100 transition-colors">PROJECTS</a></li>
+                        <li><a href="#" class="block text-gray-700 hover:text-kpk-green font-semibold text-lg py-3 border-b border-gray-100 transition-colors">E-TENDERING</a></li>
+                        <li><a href="gallery.html" class="block text-gray-700 hover:text-kpk-green font-semibold text-lg py-3 border-b border-gray-100 transition-colors">GALLERY</a></li>
+                        <li><a href="download.html" class="block text-gray-700 hover:text-kpk-green font-semibold text-lg py-3 border-b border-gray-100 transition-colors">DOWNLOADS</a></li>
+                        <li><a href="contact-us.html" class="block text-gray-700 hover:text-kpk-green font-semibold text-lg py-3 border-b border-gray-100 transition-colors">CONTACT US</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="container mx-auto px-4 py-16">
+        <div class="max-w-6xl mx-auto">
+            <!-- Page Header -->
+            <div class="text-center mb-16">
+                <h1 class="text-5xl font-bold text-gray-800 mb-6">Our Projects</h1>
+                <div class="w-32 h-1 bg-kpk-green mx-auto mb-6"></div>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                    Discover the ongoing and completed development projects that are shaping the future of Mardan. From housing schemes to infrastructure development, we're building a better tomorrow.
+                </p>
+            </div>
+
+            <!-- Project Statistics -->
+            <div class="grid md:grid-cols-4 gap-6 mb-16">
+                <div class="bg-white rounded-xl shadow-lg p-6 text-center border border-gray-100">
+                    <div class="text-3xl font-bold text-blue-600 mb-2">25+</div>
+                    <div class="text-gray-600 font-medium">Ongoing Projects</div>
+                </div>
+                <div class="bg-white rounded-xl shadow-lg p-6 text-center border border-gray-100">
+                    <div class="text-3xl font-bold text-green-600 mb-2">150+</div>
+                    <div class="text-gray-600 font-medium">Completed Projects</div>
+                </div>
+                <div class="bg-white rounded-xl shadow-lg p-6 text-center border border-gray-100">
+                    <div class="text-3xl font-bold text-purple-600 mb-2">50,000+</div>
+                    <div class="text-gray-600 font-medium">Plots Developed</div>
+                </div>
+                <div class="bg-white rounded-xl shadow-lg p-6 text-center border border-gray-100">
+                    <div class="text-3xl font-bold text-orange-600 mb-2">₹5B+</div>
+                    <div class="text-gray-600 font-medium">Investment Value</div>
+                </div>
+            </div>
+
+            <!-- Featured Projects -->
+            <section class="mb-16">
+                <h2 class="text-3xl font-bold text-gray-800 mb-8 text-center">Featured Projects</h2>
+                <div class="grid lg:grid-cols-2 gap-8">
+                    <!-- Project 1 -->
+                    <div class="project-card bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100">
+                        <div class="h-48 bg-gradient-to-r from-blue-500 to-blue-600 relative">
+                            <div class="absolute inset-0 bg-black opacity-30"></div>
+                            <div class="absolute bottom-4 left-4 right-4">
+                                <span class="status-badge status-ongoing">Ongoing</span>
+                                <h3 class="text-2xl font-bold text-white mt-2">Mardan New City Project</h3>
+                            </div>
+                        </div>
+                        <div class="p-6">
+                            <p class="text-gray-600 mb-4">
+                                A comprehensive urban development project featuring modern residential and commercial areas with all essential amenities including schools, hospitals, and recreational facilities.
+                            </p>
+                            <div class="grid grid-cols-2 gap-4 text-sm mb-4">
+                                <div>
+                                    <span class="font-semibold text-gray-700">Total Area:</span>
+                                    <span class="text-gray-600">2,500 Acres</span>
+                                </div>
+                                <div>
+                                    <span class="font-semibold text-gray-700">Total Plots:</span>
+                                    <span class="text-gray-600">15,000</span>
+                                </div>
+                                <div>
+                                    <span class="font-semibold text-gray-700">Started:</span>
+                                    <span class="text-gray-600">January 2023</span>
+                                </div>
+                                <div>
+                                    <span class="font-semibold text-gray-700">Completion:</span>
+                                    <span class="text-gray-600">December 2026</span>
+                                </div>
+                            </div>
+                            <div class="flex items-center justify-between">
+                                <div>
+                                    <div class="text-sm text-gray-600 mb-1">Progress</div>
+                                    <div class="w-32 bg-gray-200 rounded-full h-2">
+                                        <div class="bg-blue-600 h-2 rounded-full" style="width: 65%"></div>
+                                    </div>
+                                </div>
+                                <a href="#" class="text-blue-600 hover:text-blue-700 font-semibold text-sm">View Details →</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Project 2 -->
+                    <div class="project-card bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100">
+                        <div class="h-48 bg-gradient-to-r from-green-500 to-green-600 relative">
+                            <div class="absolute inset-0 bg-black opacity-30"></div>
+                            <div class="absolute bottom-4 left-4 right-4">
+                                <span class="status-badge status-completed">Completed</span>
+                                <h3 class="text-2xl font-bold text-white mt-2">Green Valley Housing Scheme</h3>
+                            </div>
+                        </div>
+                        <div class="p-6">
+                            <p class="text-gray-600 mb-4">
+                                An eco-friendly residential development with sustainable infrastructure, green spaces, and modern utilities designed for comfortable family living.
+                            </p>
+                            <div class="grid grid-cols-2 gap-4 text-sm mb-4">
+                                <div>
+                                    <span class="font-semibold text-gray-700">Total Area:</span>
+                                    <span class="text-gray-600">800 Acres</span>
+                                </div>
+                                <div>
+                                    <span class="font-semibold text-gray-700">Total Plots:</span>
+                                    <span class="text-gray-600">5,200</span>
+                                </div>
+                                <div>
+                                    <span class="font-semibold text-gray-700">Started:</span>
+                                    <span class="text-gray-600">March 2020</span>
+                                </div>
+                                <div>
+                                    <span class="font-semibold text-gray-700">Completed:</span>
+                                    <span class="text-gray-600">August 2024</span>
+                                </div>
+                            </div>
+                            <div class="flex items-center justify-between">
+                                <div>
+                                    <div class="text-sm text-gray-600 mb-1">Progress</div>
+                                    <div class="w-32 bg-gray-200 rounded-full h-2">
+                                        <div class="bg-green-600 h-2 rounded-full" style="width: 100%"></div>
+                                    </div>
+                                </div>
+                                <a href="#" class="text-green-600 hover:text-green-700 font-semibold text-sm">View Details →</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- All Projects -->
+            <section class="mb-16">
+                <h2 class="text-3xl font-bold text-gray-800 mb-8 text-center">All Development Projects</h2>
+                
+                <!-- Filter Tabs -->
+                <div class="flex flex-wrap justify-center mb-8 gap-2">
+                    <button class="px-6 py-2 bg-kpk-green text-white rounded-full font-semibold">All Projects</button>
+                    <button class="px-6 py-2 bg-gray-200 text-gray-700 rounded-full font-semibold hover:bg-gray-300 transition-colors">Ongoing</button>
+                    <button class="px-6 py-2 bg-gray-200 text-gray-700 rounded-full font-semibold hover:bg-gray-300 transition-colors">Completed</button>
+                    <button class="px-6 py-2 bg-gray-200 text-gray-700 rounded-full font-semibold hover:bg-gray-300 transition-colors">Planned</button>
+                </div>
+
+                <!-- Projects Grid -->
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <!-- Project Card 1 -->
+                    <div class="project-card bg-white rounded-xl shadow-lg p-6 border border-gray-100">
+                        <div class="flex items-start justify-between mb-4">
+                            <div class="flex items-center justify-center w-12 h-12 bg-blue-100 rounded-xl">
+                                <i class="fas fa-home text-blue-600 text-xl"></i>
+                            </div>
+                            <span class="status-badge status-ongoing">Ongoing</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-800 mb-3">Shaheen Town Phase II</h3>
+                        <p class="text-gray-600 text-sm mb-4">Modern residential scheme with commercial areas and recreational facilities.</p>
+                        <div class="space-y-2 text-sm">
+                            <div class="flex justify-between">
+                                <span class="text-gray-600">Total Plots:</span>
+                                <span class="font-semibold">3,500</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span class="text-gray-600">Area:</span>
+                                <span class="font-semibold">650 Acres</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span class="text-gray-600">Progress:</span>
+                                <span class="font-semibold text-blue-600">45%</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Project Card 2 -->
+                    <div class="project-card bg-white rounded-xl shadow-lg p-6 border border-gray-100">
+                        <div class="flex items-start justify-between mb-4">
+                            <div class="flex items-center justify-center w-12 h-12 bg-green-100 rounded-xl">
+                                <i class="fas fa-building text-green-600 text-xl"></i>
+                            </div>
+                            <span class="status-badge status-completed">Completed</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-800 mb-3">Commercial Plaza Complex</h3>
+                        <p class="text-gray-600 text-sm mb-4">Multi-story commercial complex for business and retail activities.</p>
+                        <div class="space-y-2 text-sm">
+                            <div class="flex justify-between">
+                                <span class="text-gray-600">Total Shops:</span>
+                                <span class="font-semibold">250</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span class="text-gray-600">Floors:</span>
+                                <span class="font-semibold">8 Floors</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span class="text-gray-600">Progress:</span>
+                                <span class="font-semibold text-green-600">100%</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Project Card 3 -->
+                    <div class="project-card bg-white rounded-xl shadow-lg p-6 border border-gray-100">
+                        <div class="flex items-start justify-between mb-4">
+                            <div class="flex items-center justify-center w-12 h-12 bg-purple-100 rounded-xl">
+                                <i class="fas fa-road text-purple-600 text-xl"></i>
+                            </div>
+                            <span class="status-badge status-planned">Planned</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-800 mb-3">Ring Road Extension</h3>
+                        <p class="text-gray-600 text-sm mb-4">Extension of ring road to connect new housing schemes with main city.</p>
+                        <div class="space-y-2 text-sm">
+                            <div class="flex justify-between">
+                                <span class="text-gray-600">Length:</span>
+                                <span class="font-semibold">25 KM</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span class="text-gray-600">Lanes:</span>
+                                <span class="font-semibold">4 Lanes</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span class="text-gray-600">Start Date:</span>
+                                <span class="font-semibold text-purple-600">Q2 2025</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Project Card 4 -->
+                    <div class="project-card bg-white rounded-xl shadow-lg p-6 border border-gray-100">
+                        <div class="flex items-start justify-between mb-4">
+                            <div class="flex items-center justify-center w-12 h-12 bg-yellow-100 rounded-xl">
+                                <i class="fas fa-water text-yellow-600 text-xl"></i>
+                            </div>
+                            <span class="status-badge status-ongoing">Ongoing</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-800 mb-3">Water Supply Project</h3>
+                        <p class="text-gray-600 text-sm mb-4">Modern water treatment and distribution system for residential areas.</p>
+                        <div class="space-y-2 text-sm">
+                            <div class="flex justify-between">
+                                <span class="text-gray-600">Capacity:</span>
+                                <span class="font-semibold">50 MGD</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span class="text-gray-600">Coverage:</span>
+                                <span class="font-semibold">15 Areas</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span class="text-gray-600">Progress:</span>
+                                <span class="font-semibold text-blue-600">70%</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Project Card 5 -->
+                    <div class="project-card bg-white rounded-xl shadow-lg p-6 border border-gray-100">
+                        <div class="flex items-start justify-between mb-4">
+                            <div class="flex items-center justify-center w-12 h-12 bg-red-100 rounded-xl">
+                                <i class="fas fa-hospital text-red-600 text-xl"></i>
+                            </div>
+                            <span class="status-badge status-under-review">Under Review</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-800 mb-3">Healthcare Complex</h3>
+                        <p class="text-gray-600 text-sm mb-4">Multi-specialty hospital and healthcare facilities for residents.</p>
+                        <div class="space-y-2 text-sm">
+                            <div class="flex justify-between">
+                                <span class="text-gray-600">Beds:</span>
+                                <span class="font-semibold">200 Beds</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span class="text-gray-600">Departments:</span>
+                                <span class="font-semibold">15 Depts</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span class="text-gray-600">Status:</span>
+                                <span class="font-semibold text-purple-600">Review</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Project Card 6 -->
+                    <div class="project-card bg-white rounded-xl shadow-lg p-6 border border-gray-100">
+                        <div class="flex items-start justify-between mb-4">
+                            <div class="flex items-center justify-center w-12 h-12 bg-indigo-100 rounded-xl">
+                                <i class="fas fa-graduation-cap text-indigo-600 text-xl"></i>
+                            </div>
+                            <span class="status-badge status-completed">Completed</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-800 mb-3">Educational Campus</h3>
+                        <p class="text-gray-600 text-sm mb-4">Modern educational facilities including schools and colleges.</p>
+                        <div class="space-y-2 text-sm">
+                            <div class="flex justify-between">
+                                <span class="text-gray-600">Students:</span>
+                                <span class="font-semibold">5,000</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span class="text-gray-600">Buildings:</span>
+                                <span class="font-semibold">12 Blocks</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span class="text-gray-600">Progress:</span>
+                                <span class="font-semibold text-green-600">100%</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Call to Action -->
+            <div class="bg-kpk-green rounded-xl p-8 text-center text-white">
+                <h2 class="text-3xl font-bold mb-4">Interested in Our Projects?</h2>
+                <p class="text-lg mb-6 text-green-100">
+                    Get detailed information about our development projects and investment opportunities.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                    <a href="contact-us.html" class="bg-white text-kpk-green px-8 py-3 rounded-lg font-semibold hover:bg-green-50 transition-colors">
+                        Contact Us
+                    </a>
+                    <a href="download.html" class="border-2 border-white text-white px-8 py-3 rounded-lg font-semibold hover:bg-white hover:text-kpk-green transition-colors">
+                        Download Brochures
+                    </a>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid md:grid-cols-4 gap-8">
+                <!-- About Section -->
+                <div>
+                    <h3 class="text-xl font-bold mb-4">Mardan Development Authority</h3>
+                    <p class="text-gray-400 text-sm mb-4">
+                        Dedicated to the planned development and growth of Mardan through sustainable urban planning and efficient service delivery.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Quick Links -->
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Quick Links</h4>
+                    <ul class="space-y-2">
+                        <li><a href="index.html" class="text-gray-400 hover:text-white text-sm transition-colors">Home</a></li>
+                        <li><a href="about-mda.html" class="text-gray-400 hover:text-white text-sm transition-colors">About MDA</a></li>
+                        <li><a href="services.html" class="text-gray-400 hover:text-white text-sm transition-colors">Services</a></li>
+                        <li><a href="projects.html" class="text-gray-400 hover:text-white text-sm transition-colors">Projects</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Services -->
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Services</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-white text-sm transition-colors">Plot Allotment</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white text-sm transition-colors">NOC Services</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white text-sm transition-colors">Development Plans</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white text-sm transition-colors">Building Approvals</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Contact Info -->
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Contact Info</h4>
+                    <ul class="space-y-2">
+                        <li class="flex items-start text-sm text-gray-400">
+                            <i class="fas fa-map-marker-alt mt-1 mr-2 text-green-400"></i>
+                            Mardan, Khyber Pakhtunkhwa, Pakistan
+                        </li>
+                        <li class="flex items-center text-sm text-gray-400">
+                            <i class="fas fa-phone mr-2 text-green-400"></i>
+                            +92 937 9230433
+                        </li>
+                        <li class="flex items-center text-sm text-gray-400">
+                            <i class="fas fa-envelope mr-2 text-green-400"></i>
+                            info@mda.gkp.pk
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-700 mt-8 pt-8 text-center">
+                <p class="text-gray-400 text-sm">
+                    © 2025 Mardan Development Authority. All rights reserved. | Government of Khyber Pakhtunkhwa
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+        const closeMobileMenu = document.getElementById('closeMobileMenu');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.remove('-translate-x-full');
+            mobileMenu.classList.add('translate-x-0');
+        });
+
+        closeMobileMenu.addEventListener('click', () => {
+            mobileMenu.classList.remove('translate-x-0');
+            mobileMenu.classList.add('-translate-x-full');
+        });
+    </script>
+</body>
+</html>

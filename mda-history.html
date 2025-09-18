@@ -1,0 +1,549 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MDA History - Mardan Development Authority - Government of KPK</title>
+    <meta name="description" content="History of Mardan Development Authority - Learn about our establishment, objectives, and achievements in developing Sheikhmaltoon Town phases.">
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Font Awesome CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <!-- Custom Tailwind Configuration -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'kpk-green': '#2d5016',
+                        'kpk-light-green': '#4ade80',
+                        'kpk-dark': '#1f2937',
+                        'gov-blue': '#1e40af'
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+        
+        body {
+            font-family: 'Inter', system-ui, -apple-system, sans-serif;
+            line-height: 1.6;
+        }
+        
+        .government-header {
+            background: linear-gradient(135deg, #2d5016 0%, #059669 50%, #10b981 100%);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .government-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('https://media.istockphoto.com/id/1874045716/photo/takht-i-bahi-buddhist-monastery-in-mardan-pakistan.jpg?s=612x612&w=0&k=20&c=KQOsUGn8c0GCbDZYW5EPzHVwmqHe3qE_rfh8qIRBcEE=') center/cover;
+            opacity: 0.1;
+            z-index: 0;
+        }
+        
+        .government-header > * {
+            position: relative;
+            z-index: 1;
+        }
+        
+        .navbar-shadow {
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+        }
+    </style>
+</head>
+
+<body class="bg-gray-50">
+    <!-- Top Bar -->
+    <div class="bg-gray-900 text-white py-3 border-b border-gray-700">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col sm:flex-row justify-between items-center gap-2">
+                <div class="flex flex-col sm:flex-row space-y-2 sm:space-y-0 sm:space-x-6">
+                    <span class="flex items-center text-sm font-medium">
+                        <i class="fas fa-phone mr-2 text-green-400"></i> +92 937 9230433
+                    </span>
+                    <span class="flex items-center text-sm font-medium">
+                        <i class="fas fa-envelope mr-2 text-green-400"></i> info@mda.gkp.pk
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <header class="government-header text-white">
+        <div class="container mx-auto px-4 py-8 md:py-12">
+            <div class="flex flex-col xl:flex-row items-center justify-between gap-8">
+                <!-- Logo Section -->
+                <div class="flex flex-col sm:flex-row items-center text-center sm:text-left">
+                    <div class="relative mb-4 sm:mb-0 sm:mr-6">
+                        <img src="http://mda.gkp.pk/uploads/logo_image/1747913518logo.PNG" 
+                             alt="KPK Development Authority Official Logo" 
+                             class="w-24 h-24 md:w-28 md:h-28 object-contain bg-white rounded-xl shadow-2xl p-2 border-4 border-green-200">
+                    </div>
+                    <div class="leading-tight">
+                        <h1 class="text-2xl md:text-3xl xl:text-4xl font-black mb-2 tracking-wide">MARDAN DEVELOPMENT</h1>
+                        <h2 class="text-lg md:text-xl xl:text-2xl font-bold text-green-100 mb-2 tracking-wide">AUTHORITY</h2>
+                        <p class="text-xs md:text-sm text-green-200 font-medium uppercase tracking-wider">Government of Khyber Pakhtunkhwa</p>
+                        <div class="mt-3 flex items-center justify-center sm:justify-start">
+                            <div class="w-12 md:w-16 h-1 bg-white mr-3"></div>
+                            <span class="text-xs text-green-200 font-medium"></span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Search Box -->
+                <div class="w-full max-w-lg xl:max-w-sm">
+                    <div class="flex bg-white rounded-lg overflow-hidden shadow-xl">
+                        <input 
+                            type="text" 
+                            placeholder="Search..." 
+                            class="flex-1 px-4 py-3 md:py-4 text-gray-700 focus:outline-none focus:ring-2 focus:ring-green-300"
+                            id="searchInput"
+                        >
+                        <button class="bg-kpk-green hover:bg-green-700 px-6 py-3 md:py-4 text-white transition-all duration-300 hover:shadow-lg">
+                            <i class="fas fa-search"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Navigation Menu -->
+    <nav class="bg-white navbar-shadow sticky top-0 z-40">
+        <div class="container mx-auto px-4">
+            <div class="flex items-center justify-between">
+                <!-- Mobile Menu Button -->
+                <button id="mobileMenuBtn" class="lg:hidden p-3 text-gray-600 hover:text-kpk-green transition-colors">
+                    <i class="fas fa-bars text-xl"></i>
+                </button>
+                
+                <!-- Desktop Navigation -->
+                <ul class="hidden lg:flex items-center space-x-0 py-0 w-full justify-center">
+                    <li><a href="index.html" class="text-gray-700 hover:text-kpk-green font-semibold px-6 py-5 transition-all duration-300 hover:bg-green-50">HOME</a></li>
+                    <li class="relative group">
+                        <a href="#" class="text-kpk-green bg-green-50 font-semibold flex items-center px-6 py-5 transition-all duration-300">
+                            ABOUT US <i class="fas fa-chevron-down ml-2 text-xs"></i>
+                        </a>
+                        <ul class="absolute top-full left-0 bg-white shadow-xl rounded-lg py-3 w-52 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50 border border-gray-200">
+                            <li><a href="about-mda.html" class="block px-6 py-3 text-gray-600 hover:bg-kpk-light-green hover:text-white transition-colors">About MDA</a></li>
+                            <li><a href="mda-history.html" class="block px-6 py-3 text-kpk-green bg-green-50 hover:bg-kpk-light-green hover:text-white transition-colors">History</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="services.html" class="text-gray-700 hover:text-kpk-green font-semibold px-6 py-5 transition-all duration-300 hover:bg-green-50">SERVICES</a></li>
+                    <li><a href="projects.html" class="text-gray-700 hover:text-kpk-green font-semibold px-6 py-5 transition-all duration-300 hover:bg-green-50">PROJECTS</a></li>
+                    <li><a href="#" class="text-gray-700 hover:text-kpk-green font-semibold px-6 py-5 transition-all duration-300 hover:bg-green-50">E-TENDERING</a></li>
+                    <li><a href="gallery.html" class="text-gray-700 hover:text-kpk-green font-semibold px-6 py-5 transition-all duration-300 hover:bg-green-50">GALLERY</a></li>
+                    <li><a href="download.html" class="text-gray-700 hover:text-kpk-green font-semibold px-6 py-5 transition-all duration-300 hover:bg-green-50">DOWNLOADS</a></li>
+                    <li><a href="contact-us.html" class="text-gray-700 hover:text-kpk-green font-semibold px-6 py-5 transition-all duration-300 hover:bg-green-50">CONTACT US</a></li>
+                </ul>
+
+                <!-- Mobile Menu -->
+                <div id="mobileMenu" class="lg:hidden fixed top-0 left-0 w-full h-full bg-white z-50 transform -translate-x-full transition-transform duration-300">
+                    <div class="p-6 border-b border-gray-200 bg-gradient-to-r from-kpk-green to-green-600">
+                        <div class="flex justify-between items-center">
+                            <h3 class="text-xl font-bold text-white">Navigation Menu</h3>
+                            <button id="closeMobileMenu" class="text-white hover:text-green-200 p-2">
+                                <i class="fas fa-times text-2xl"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <ul class="p-6 space-y-6">
+                        <li><a href="index.html" class="block text-gray-700 hover:text-kpk-green font-semibold text-lg py-3 border-b border-gray-100 transition-colors">HOME</a></li>
+                        <li><a href="about-mda.html" class="block text-gray-700 hover:text-kpk-green font-semibold text-lg py-3 border-b border-gray-100 transition-colors">ABOUT MDA</a></li>
+                        <li><a href="mda-history.html" class="block text-kpk-green font-semibold text-lg py-3 border-b border-gray-100 transition-colors">HISTORY</a></li>
+                        <li><a href="services.html" class="block text-gray-700 hover:text-kpk-green font-semibold text-lg py-3 border-b border-gray-100 transition-colors">SERVICES</a></li>
+                        <li><a href="projects.html" class="block text-gray-700 hover:text-kpk-green font-semibold text-lg py-3 border-b border-gray-100 transition-colors">PROJECTS</a></li>
+                        <li><a href="#" class="block text-gray-700 hover:text-kpk-green font-semibold text-lg py-3 border-b border-gray-100 transition-colors">E-TENDERING</a></li>
+                        <li><a href="gallery.html" class="block text-gray-700 hover:text-kpk-green font-semibold text-lg py-3 border-b border-gray-100 transition-colors">GALLERY</a></li>
+                        <li><a href="download.html" class="block text-gray-700 hover:text-kpk-green font-semibold text-lg py-3 border-b border-gray-100 transition-colors">DOWNLOADS</a></li>
+                        <li><a href="contact-us.html" class="block text-gray-700 hover:text-kpk-green font-semibold text-lg py-3 border-b border-gray-100 transition-colors">CONTACT US</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="container mx-auto px-4 py-16">
+        <div class="max-w-6xl mx-auto">
+            <!-- Page Header -->
+            <div class="text-center mb-16">
+                <h1 class="text-5xl font-bold text-gray-800 mb-6">MDA History</h1>
+                <div class="w-32 h-1 bg-kpk-green mx-auto mb-6"></div>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">Learn about the establishment, objectives, and achievements of Mardan Development Authority</p>
+            </div>
+
+            <!-- History Content -->
+            <div class="space-y-16">
+                <!-- Establishment Section -->
+                <div class="bg-white rounded-2xl shadow-xl p-8 md:p-12">
+                    <div class="flex items-center mb-8">
+                        <div class="w-16 h-16 bg-gradient-to-br from-kpk-green to-green-600 rounded-full flex items-center justify-center mr-6">
+                            <i class="fas fa-building text-white text-2xl"></i>
+                        </div>
+                        <div>
+                            <h2 class="text-3xl font-bold text-gray-800 mb-2">Establishment of Mardan Development Authority</h2>
+                            <div class="w-20 h-1 bg-kpk-green"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="text-gray-700 text-lg leading-relaxed mb-6">
+                        <p class="mb-6">Housing is a basic need and thousands of families are struggling to have a roof over their heads. Rapid population growth, scarcity of Government resources, urbanization and the development imbalances between urban and rural areas have compounded the housing problem. In big Cities/Towns this problem has become further worsen.</p>
+                        
+                        <p>Mardan Development Authority is now working under the Administrative control of Secretary Local Government, Elections and Rural Development Department, Government of Khyber Pakhtunkhwa.</p>
+                    </div>
+                </div>
+
+                <!-- Objectives Section -->
+                <div class="bg-white rounded-2xl shadow-xl p-8 md:p-12">
+                    <div class="flex items-center mb-8">
+                        <div class="w-16 h-16 bg-gradient-to-br from-blue-600 to-blue-800 rounded-full flex items-center justify-center mr-6">
+                            <i class="fas fa-bullseye text-white text-2xl"></i>
+                        </div>
+                        <div>
+                            <h2 class="text-3xl font-bold text-gray-800 mb-2">Objectives</h2>
+                            <div class="w-20 h-1 bg-blue-600"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <ul class="space-y-4">
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-kpk-green mt-1 mr-3 text-lg"></i>
+                                <span class="text-gray-700">Launching Sheikhmaltoon town Phase-IV</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-kpk-green mt-1 mr-3 text-lg"></i>
+                                <span class="text-gray-700">External Electrification in SMT</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-kpk-green mt-1 mr-3 text-lg"></i>
+                                <span class="text-gray-700">Arrangement for solid waste Management, Dumping Ground and Land fill</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-kpk-green mt-1 mr-3 text-lg"></i>
+                                <span class="text-gray-700">Establishment Separate Grid Station</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-kpk-green mt-1 mr-3 text-lg"></i>
+                                <span class="text-gray-700">Providing of sui Gas facility</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-kpk-green mt-1 mr-3 text-lg"></i>
+                                <span class="text-gray-700">Development of new Tube Wells in existing networking</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-kpk-green mt-1 mr-3 text-lg"></i>
+                                <span class="text-gray-700">Rehabilitation of existing water supply networking system</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-kpk-green mt-1 mr-3 text-lg"></i>
+                                <span class="text-gray-700">Rehabilitation of sewerage system</span>
+                            </li>
+                        </ul>
+                        
+                        <ul class="space-y-4">
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-kpk-green mt-1 mr-3 text-lg"></i>
+                                <span class="text-gray-700">Construction of Roads/Rehabilitation of Roads</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-kpk-green mt-1 mr-3 text-lg"></i>
+                                <span class="text-gray-700">Arrangement of Additional operational equipment/Machinery for efficient working</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-kpk-green mt-1 mr-3 text-lg"></i>
+                                <span class="text-gray-700">Construction of Sewerage Treatment Plant (STP)</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-kpk-green mt-1 mr-3 text-lg"></i>
+                                <span class="text-gray-700">Extension & strengthening of power supply (PESCO)</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-kpk-green mt-1 mr-3 text-lg"></i>
+                                <span class="text-gray-700">Disposal of commercial plot/Construction of commercial plaza</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-kpk-green mt-1 mr-3 text-lg"></i>
+                                <span class="text-gray-700">Disposal of non utility plots in education & health sector</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-kpk-green mt-1 mr-3 text-lg"></i>
+                                <span class="text-gray-700">Disposal constructed shop/Flats</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-kpk-green mt-1 mr-3 text-lg"></i>
+                                <span class="text-gray-700">Environmental Beautification</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Achievements Section -->
+                <div class="bg-white rounded-2xl shadow-xl p-8 md:p-12">
+                    <div class="flex items-center mb-8">
+                        <div class="w-16 h-16 bg-gradient-to-br from-green-600 to-green-800 rounded-full flex items-center justify-center mr-6">
+                            <i class="fas fa-trophy text-white text-2xl"></i>
+                        </div>
+                        <div>
+                            <h2 class="text-3xl font-bold text-gray-800 mb-2">Achievements</h2>
+                            <div class="w-20 h-1 bg-green-600"></div>
+                        </div>
+                    </div>
+                    
+                    <p class="text-gray-700 text-lg mb-8">MDA had developed three Phases of Sheikhmaltoon Town Swabi Mardan as per detail below:</p>
+                    
+                    <div class="grid md:grid-cols-3 gap-8">
+                        <!-- Phase I -->
+                        <div class="bg-gradient-to-br from-kpk-green to-green-600 rounded-xl p-6 text-white">
+                            <h3 class="text-2xl font-bold mb-6 text-center">Shah Mansoor Town Phase-I</h3>
+                            <div class="space-y-4">
+                                <div class="flex justify-between items-center border-b border-green-400 pb-2">
+                                    <span class="font-medium">Residential plots</span>
+                                    <span class="font-bold">2777 Nos</span>
+                                </div>
+                                <div class="flex justify-between items-center border-b border-green-400 pb-2">
+                                    <span class="font-medium">Commercial</span>
+                                    <span class="font-bold">154 kanal</span>
+                                </div>
+                                <div class="flex justify-between items-center border-b border-green-400 pb-2">
+                                    <span class="font-medium">Education</span>
+                                    <span class="font-bold">64 kanal</span>
+                                </div>
+                                <div class="flex justify-between items-center">
+                                    <span class="font-medium">Health</span>
+                                    <span class="font-bold">6 kanal</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Phase II -->
+                        <div class="bg-gradient-to-br from-blue-600 to-blue-800 rounded-xl p-6 text-white">
+                            <h3 class="text-2xl font-bold mb-6 text-center">Shah Mansoor Town Phase-II</h3>
+                            <div class="space-y-4">
+                                <div class="flex justify-between items-center border-b border-blue-400 pb-2">
+                                    <span class="font-medium">Residential plots</span>
+                                    <span class="font-bold">1961 Nos</span>
+                                </div>
+                                <div class="flex justify-between items-center border-b border-blue-400 pb-2">
+                                    <span class="font-medium">Commercial</span>
+                                    <span class="font-bold">15 kanal</span>
+                                </div>
+                                <div class="flex justify-between items-center border-b border-blue-400 pb-2">
+                                    <span class="font-medium">Education</span>
+                                    <span class="font-bold">29.63 kanal</span>
+                                </div>
+                                <div class="flex justify-between items-center">
+                                    <span class="font-medium">Health</span>
+                                    <span class="font-bold">2 kanal</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Phase III -->
+                        <div class="bg-gradient-to-br from-purple-600 to-purple-800 rounded-xl p-6 text-white">
+                            <h3 class="text-2xl font-bold mb-6 text-center">Shah Mansoor Town Phase-III</h3>
+                            <div class="space-y-4">
+                                <div class="flex justify-between items-center border-b border-purple-400 pb-2">
+                                    <span class="font-medium">Residential plots</span>
+                                    <span class="font-bold">501 Nos</span>
+                                </div>
+                                <div class="flex justify-between items-center border-b border-purple-400 pb-2">
+                                    <span class="font-medium">Commercial</span>
+                                    <span class="font-bold">4.6 kanal</span>
+                                </div>
+                                <div class="flex justify-between items-center">
+                                    <span class="font-medium">Education</span>
+                                    <span class="font-bold">4 kanal</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white pt-12 pb-6 mt-16">
+        <div class="container mx-auto px-4">
+            <div class="grid md:grid-cols-4 gap-8 mb-8">
+                <!-- About Us -->
+                <div>
+                    <h5 class="text-lg font-semibold mb-4 text-kpk-light-green">About Us</h5>
+                    <ul class="space-y-2">
+                        <li>
+                            <a href="about-mda.html" class="text-gray-300 hover:text-white flex items-center">
+                                <i class="fas fa-caret-right mr-2 text-kpk-light-green"></i>
+                                About MDA
+                            </a>
+                        </li>
+                        <li>
+                            <a href="mda-history.html" class="text-gray-300 hover:text-white flex items-center">
+                                <i class="fas fa-caret-right mr-2 text-kpk-light-green"></i>
+                                Our History
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" class="text-gray-300 hover:text-white flex items-center">
+                                <i class="fas fa-caret-right mr-2 text-kpk-light-green"></i>
+                                Mission & Vision
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Location Map -->
+                <div>
+                    <h5 class="text-lg font-semibold mb-4 text-kpk-light-green">Location</h5>
+                    <div class="bg-gray-700 rounded-lg p-4">
+                        <div class="aspect-w-16 aspect-h-12 bg-gray-600 rounded-lg flex items-center justify-center">
+                            <i class="fas fa-map-marker-alt text-4xl text-kpk-light-green"></i>
+                        </div>
+                        <p class="text-sm text-gray-300 mt-2">Sector-F, Sheikh Maltoon Town, Mardan, KPK</p>
+                    </div>
+                </div>
+
+                <!-- Resource Links -->
+                <div>
+                    <h5 class="text-lg font-semibold mb-4 text-kpk-light-green">Resources</h5>
+                    <ul class="space-y-2">
+                        <li>
+                            <a href="#" class="text-gray-300 hover:text-white flex items-center">
+                                <i class="fas fa-caret-right mr-2 text-kpk-light-green"></i>
+                                Public Notices
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" class="text-gray-300 hover:text-white flex items-center">
+                                <i class="fas fa-caret-right mr-2 text-kpk-light-green"></i>
+                                Annual Reports
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" class="text-gray-300 hover:text-white flex items-center">
+                                <i class="fas fa-caret-right mr-2 text-kpk-light-green"></i>
+                                Housing Schemes
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" class="text-gray-300 hover:text-white flex items-center">
+                                <i class="fas fa-caret-right mr-2 text-kpk-light-green"></i>
+                                Development Projects
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Contact Info -->
+                <div>
+                    <h5 class="text-lg font-semibold mb-4 text-kpk-light-green">Contact Information</h5>
+                    <ul class="space-y-3">
+                        <li class="flex items-start">
+                            <i class="fas fa-map-marker-alt text-kpk-light-green mr-3 mt-1"></i>
+                            <span class="text-gray-300 text-sm">
+                                Sector-F Sheikh Maltoon Town<br>
+                                Mardan, Khyber Pakhtunkhwa<br>
+                                Pakistan
+                            </span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-phone text-kpk-light-green mr-3"></i>
+                            <span class="text-gray-300 text-sm">
+                                Director Office: (0937) 9230433<br>
+                                MDA Exchange: (0937) 9230434<br>
+                                Fax: (0937) 9230435
+                            </span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-envelope text-kpk-light-green mr-3"></i>
+                            <span class="text-gray-300 text-sm">info@mda.gkp.pk</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- Footer Bottom -->
+            <div class="border-t border-gray-700 pt-6">
+                <div class="flex flex-col md:flex-row justify-between items-center">
+                    <p class="text-gray-400 text-sm mb-4 md:mb-0">
+                        <i class="fas fa-copyright mr-1"></i>
+                        Copyright 2025. All Rights Reserved by Mardan Development Authority.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-white">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white">
+                            <i class="fab fa-youtube"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+        const closeMobileMenu = document.getElementById('closeMobileMenu');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.remove('-translate-x-full');
+            mobileMenu.classList.add('translate-x-0');
+        });
+
+        closeMobileMenu.addEventListener('click', () => {
+            mobileMenu.classList.remove('translate-x-0');
+            mobileMenu.classList.add('-translate-x-full');
+        });
+
+        // Search functionality
+        document.getElementById('searchInput').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                const searchTerm = this.value;
+                if (searchTerm.trim()) {
+                    alert('Searching for: ' + searchTerm);
+                    // Here you would typically redirect to search results
+                }
+            }
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>

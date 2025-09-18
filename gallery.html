@@ -1,0 +1,718 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Photo Gallery - Mardan Development Authority - Government of KPK</title>
+    <meta name="description" content="Photo Gallery of Mardan Development Authority - View images of our housing schemes, development projects, and infrastructure in Mardan.">
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Font Awesome CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <!-- Custom Tailwind Configuration -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'kpk-green': '#2d5016',
+                        'kpk-light-green': '#4ade80',
+                        'kpk-dark': '#1f2937',
+                        'gov-blue': '#1e40af'
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+        
+        body {
+            font-family: 'Inter', system-ui, -apple-system, sans-serif;
+            line-height: 1.6;
+        }
+        
+        .government-header {
+            background: linear-gradient(135deg, #2d5016 0%, #059669 50%, #10b981 100%);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .government-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('https://media.istockphoto.com/id/1874045716/photo/takht-i-bahi-buddhist-monastery-in-mardan-pakistan.jpg?s=612x612&w=0&k=20&c=KQOsUGn8c0GCbDZYW5EPzHVwmqHe3qE_rfh8qIRBcEE=') center/cover;
+            opacity: 0.1;
+            z-index: 0;
+        }
+        
+        .government-header > * {
+            position: relative;
+            z-index: 1;
+        }
+        
+        .navbar-shadow {
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+        }
+        
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .gallery-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+        }
+        
+        .gallery-item img {
+            transition: transform 0.3s ease;
+        }
+        
+        .gallery-item:hover img {
+            transform: scale(1.05);
+        }
+        
+        .gallery-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(45deg, rgba(45, 80, 22, 0.8), rgba(16, 185, 129, 0.7));
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+        }
+        
+        .gallery-item:hover .gallery-overlay {
+            opacity: 1;
+        }
+        
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            z-index: 1000;
+        }
+        
+        .modal.active {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .modal img {
+            max-width: 90%;
+            max-height: 90%;
+            object-fit: contain;
+        }
+        
+        .filter-btn {
+            transition: all 0.3s ease;
+        }
+        
+        .filter-btn.active {
+            background-color: #2d5016;
+            color: white;
+        }
+    </style>
+</head>
+
+<body class="bg-gray-50">
+    <!-- Top Bar -->
+    <div class="bg-gray-900 text-white py-3 border-b border-gray-700">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col sm:flex-row justify-between items-center gap-2">
+                <div class="flex flex-col sm:flex-row space-y-2 sm:space-y-0 sm:space-x-6">
+                    <span class="flex items-center text-sm font-medium">
+                        <i class="fas fa-phone mr-2 text-green-400"></i> +92 937 9230433
+                    </span>
+                    <span class="flex items-center text-sm font-medium">
+                        <i class="fas fa-envelope mr-2 text-green-400"></i> info@mda.gkp.pk
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <header class="government-header text-white">
+        <div class="container mx-auto px-4 py-8 md:py-12">
+            <div class="flex flex-col xl:flex-row items-center justify-between gap-8">
+                <!-- Logo Section -->
+                <div class="flex flex-col sm:flex-row items-center text-center sm:text-left">
+                    <div class="relative mb-4 sm:mb-0 sm:mr-6">
+                        <img src="http://mda.gkp.pk/uploads/logo_image/1747913518logo.PNG" 
+                             alt="KPK Development Authority Official Logo" 
+                             class="w-24 h-24 md:w-28 md:h-28 object-contain bg-white rounded-xl shadow-2xl p-2 border-4 border-green-200">
+                    </div>
+                    <div class="leading-tight">
+                        <h1 class="text-2xl md:text-3xl xl:text-4xl font-black mb-2 tracking-wide">MARDAN DEVELOPMENT</h1>
+                        <h2 class="text-lg md:text-xl xl:text-2xl font-bold text-green-100 mb-2 tracking-wide">AUTHORITY</h2>
+                        <p class="text-xs md:text-sm text-green-200 font-medium uppercase tracking-wider">Government of Khyber Pakhtunkhwa</p>
+                        <div class="mt-3 flex items-center justify-center sm:justify-start">
+                            <div class="w-12 md:w-16 h-1 bg-white mr-3"></div>
+                            <span class="text-xs text-green-200 font-medium"></span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Search Box -->
+                <div class="w-full max-w-lg xl:max-w-sm">
+                    <div class="flex bg-white rounded-lg overflow-hidden shadow-xl">
+                        <input 
+                            type="text" 
+                            placeholder="Search..." 
+                            class="flex-1 px-4 py-3 md:py-4 text-gray-700 focus:outline-none focus:ring-2 focus:ring-green-300"
+                            id="searchInput"
+                        >
+                        <button class="bg-kpk-green hover:bg-green-700 px-6 py-3 md:py-4 text-white transition-all duration-300 hover:shadow-lg">
+                            <i class="fas fa-search"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Navigation Menu -->
+    <nav class="bg-white navbar-shadow sticky top-0 z-40">
+        <div class="container mx-auto px-4">
+            <div class="flex items-center justify-between">
+                <!-- Mobile Menu Button -->
+                <button id="mobileMenuBtn" class="lg:hidden p-3 text-gray-600 hover:text-kpk-green transition-colors">
+                    <i class="fas fa-bars text-xl"></i>
+                </button>
+                
+                <!-- Desktop Navigation -->
+                <ul class="hidden lg:flex items-center space-x-0 py-0 w-full justify-center">
+                    <li><a href="index.html" class="text-gray-700 hover:text-kpk-green font-semibold px-6 py-5 transition-all duration-300 hover:bg-green-50">HOME</a></li>
+                    <li class="relative group">
+                        <a href="#" class="text-gray-700 hover:text-kpk-green font-semibold flex items-center px-6 py-5 transition-all duration-300 hover:bg-green-50">
+                            ABOUT US <i class="fas fa-chevron-down ml-2 text-xs"></i>
+                        </a>
+                        <ul class="absolute top-full left-0 bg-white shadow-xl rounded-lg py-3 w-52 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50 border border-gray-200">
+                            <li><a href="about-mda.html" class="block px-6 py-3 text-gray-600 hover:bg-kpk-light-green hover:text-white transition-colors">About MDA</a></li>
+                            <li><a href="mda-history.html" class="block px-6 py-3 text-gray-600 hover:bg-kpk-light-green hover:text-white transition-colors">History</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="services.html" class="text-gray-700 hover:text-kpk-green font-semibold px-6 py-5 transition-all duration-300 hover:bg-green-50">SERVICES</a></li>
+                    <li><a href="projects.html" class="text-gray-700 hover:text-kpk-green font-semibold px-6 py-5 transition-all duration-300 hover:bg-green-50">PROJECTS</a></li>
+                    <li><a href="#" class="text-gray-700 hover:text-kpk-green font-semibold px-6 py-5 transition-all duration-300 hover:bg-green-50">E-TENDERING</a></li>
+                    <li><a href="gallery.html" class="text-kpk-green bg-green-50 font-semibold px-6 py-5 transition-all duration-300">GALLERY</a></li>
+                    <li><a href="download.html" class="text-gray-700 hover:text-kpk-green font-semibold px-6 py-5 transition-all duration-300 hover:bg-green-50">DOWNLOADS</a></li>
+                    <li><a href="contact-us.html" class="text-gray-700 hover:text-kpk-green font-semibold px-6 py-5 transition-all duration-300 hover:bg-green-50">CONTACT US</a></li>
+                </ul>
+
+                <!-- Mobile Menu -->
+                <div id="mobileMenu" class="lg:hidden fixed top-0 left-0 w-full h-full bg-white z-50 transform -translate-x-full transition-transform duration-300">
+                    <div class="p-6 border-b border-gray-200 bg-gradient-to-r from-kpk-green to-green-600">
+                        <div class="flex justify-between items-center">
+                            <h3 class="text-xl font-bold text-white">Navigation Menu</h3>
+                            <button id="closeMobileMenu" class="text-white hover:text-green-200 p-2">
+                                <i class="fas fa-times text-2xl"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <ul class="p-6 space-y-6">
+                        <li><a href="index.html" class="block text-gray-700 hover:text-kpk-green font-semibold text-lg py-3 border-b border-gray-100 transition-colors">HOME</a></li>
+                        <li><a href="about-mda.html" class="block text-gray-700 hover:text-kpk-green font-semibold text-lg py-3 border-b border-gray-100 transition-colors">ABOUT MDA</a></li>
+                        <li><a href="mda-history.html" class="block text-gray-700 hover:text-kpk-green font-semibold text-lg py-3 border-b border-gray-100 transition-colors">HISTORY</a></li>
+                        <li><a href="services.html" class="block text-gray-700 hover:text-kpk-green font-semibold text-lg py-3 border-b border-gray-100 transition-colors">SERVICES</a></li>
+                        <li><a href="projects.html" class="block text-gray-700 hover:text-kpk-green font-semibold text-lg py-3 border-b border-gray-100 transition-colors">PROJECTS</a></li>
+                        <li><a href="#" class="block text-gray-700 hover:text-kpk-green font-semibold text-lg py-3 border-b border-gray-100 transition-colors">E-TENDERING</a></li>
+                        <li><a href="gallery.html" class="block text-kpk-green font-semibold text-lg py-3 border-b border-gray-100 transition-colors">GALLERY</a></li>
+                        <li><a href="download.html" class="block text-gray-700 hover:text-kpk-green font-semibold text-lg py-3 border-b border-gray-100 transition-colors">DOWNLOADS</a></li>
+                        <li><a href="contact-us.html" class="block text-gray-700 hover:text-kpk-green font-semibold text-lg py-3 border-b border-gray-100 transition-colors">CONTACT US</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="container mx-auto px-4 py-16">
+        <div class="max-w-6xl mx-auto">
+            <!-- Page Header -->
+            <div class="text-center mb-16">
+                <h1 class="text-5xl font-bold text-gray-800 mb-6">Photo Gallery</h1>
+                <div class="w-32 h-1 bg-kpk-green mx-auto mb-6"></div>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">Explore the development projects, housing schemes, and infrastructure achievements of Mardan Development Authority</p>
+            </div>
+
+            <!-- Filter Buttons -->
+            <div class="bg-white rounded-2xl shadow-xl p-8 md:p-12 mb-16">
+                <div class="flex items-center mb-8">
+                    <div class="w-16 h-16 bg-gradient-to-br from-kpk-green to-green-600 rounded-full flex items-center justify-center mr-6">
+                        <i class="fas fa-filter text-white text-2xl"></i>
+                    </div>
+                    <div>
+                        <h2 class="text-3xl font-bold text-gray-800 mb-2">Filter by Category</h2>
+                        <div class="w-20 h-1 bg-kpk-green"></div>
+                    </div>
+                </div>
+                
+                <div class="flex flex-wrap gap-4 justify-center">
+                    <button class="filter-btn active px-6 py-3 rounded-lg border-2 border-kpk-green font-semibold transition-all hover:bg-kpk-green hover:text-white" data-filter="all">
+                        <i class="fas fa-th-large mr-2"></i>All Images
+                    </button>
+                    <button class="filter-btn px-6 py-3 rounded-lg border-2 border-kpk-green font-semibold transition-all hover:bg-kpk-green hover:text-white" data-filter="housing">
+                        <i class="fas fa-home mr-2"></i>Housing Schemes
+                    </button>
+                    <button class="filter-btn px-6 py-3 rounded-lg border-2 border-kpk-green font-semibold transition-all hover:bg-kpk-green hover:text-white" data-filter="infrastructure">
+                        <i class="fas fa-road mr-2"></i>Infrastructure
+                    </button>
+                    <button class="filter-btn px-6 py-3 rounded-lg border-2 border-kpk-green font-semibold transition-all hover:bg-kpk-green hover:text-white" data-filter="office">
+                        <i class="fas fa-building mr-2"></i>Office & Events
+                    </button>
+                    <button class="filter-btn px-6 py-3 rounded-lg border-2 border-kpk-green font-semibold transition-all hover:bg-kpk-green hover:text-white" data-filter="construction">
+                        <i class="fas fa-hard-hat mr-2"></i>Construction
+                    </button>
+                </div>
+            </div>
+
+            <!-- Gallery Grid -->
+            <div class="gallery-grid grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                
+                <!-- Housing Schemes Images -->
+                <div class="gallery-item housing" data-category="housing">
+                    <img src="https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=600&h=400&fit=crop&crop=center" 
+                         alt="Sheikh Maltoon Town Housing Scheme Phase I" 
+                         class="w-full h-64 object-cover">
+                    <div class="gallery-overlay">
+                        <i class="fas fa-search-plus text-white text-3xl mb-4"></i>
+                        <h3 class="text-white text-lg font-bold text-center">Sheikh Maltoon Town Phase I</h3>
+                        <p class="text-white text-sm text-center mt-2">Completed Housing Development</p>
+                    </div>
+                </div>
+
+                <div class="gallery-item housing" data-category="housing">
+                    <img src="https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=600&h=400&fit=crop&crop=center" 
+                         alt="Sheikh Maltoon Town Housing Scheme Phase II" 
+                         class="w-full h-64 object-cover">
+                    <div class="gallery-overlay">
+                        <i class="fas fa-search-plus text-white text-3xl mb-4"></i>
+                        <h3 class="text-white text-lg font-bold text-center">Sheikh Maltoon Town Phase II</h3>
+                        <p class="text-white text-sm text-center mt-2">Modern Residential Units</p>
+                    </div>
+                </div>
+
+                <div class="gallery-item housing" data-category="housing">
+                    <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&h=400&fit=crop&crop=center" 
+                         alt="Sheikh Maltoon Town Housing Scheme Phase III" 
+                         class="w-full h-64 object-cover">
+                    <div class="gallery-overlay">
+                        <i class="fas fa-search-plus text-white text-3xl mb-4"></i>
+                        <h3 class="text-white text-lg font-bold text-center">Sheikh Maltoon Town Phase III</h3>
+                        <p class="text-white text-sm text-center mt-2">Latest Development Project</p>
+                    </div>
+                </div>
+
+                <!-- Infrastructure Images -->
+                <div class="gallery-item infrastructure" data-category="infrastructure">
+                    <img src="https://images.unsplash.com/photo-1449824913935-59a10b8d2000?w=600&h=400&fit=crop&crop=center" 
+                         alt="Road Infrastructure Development" 
+                         class="w-full h-64 object-cover">
+                    <div class="gallery-overlay">
+                        <i class="fas fa-search-plus text-white text-3xl mb-4"></i>
+                        <h3 class="text-white text-lg font-bold text-center">Road Infrastructure</h3>
+                        <p class="text-white text-sm text-center mt-2">Modern Road Development</p>
+                    </div>
+                </div>
+
+                <div class="gallery-item infrastructure" data-category="infrastructure">
+                    <img src="https://images.unsplash.com/photo-1541888946425-d81bb19240f5?w=600&h=400&fit=crop&crop=center" 
+                         alt="Water Supply System" 
+                         class="w-full h-64 object-cover">
+                    <div class="gallery-overlay">
+                        <i class="fas fa-search-plus text-white text-3xl mb-4"></i>
+                        <h3 class="text-white text-lg font-bold text-center">Water Supply System</h3>
+                        <p class="text-white text-sm text-center mt-2">Clean Water Infrastructure</p>
+                    </div>
+                </div>
+
+                <div class="gallery-item infrastructure" data-category="infrastructure">
+                    <img src="https://images.unsplash.com/photo-1581094794329-c8112a89af12?w=600&h=400&fit=crop&crop=center" 
+                         alt="Electricity Infrastructure" 
+                         class="w-full h-64 object-cover">
+                    <div class="gallery-overlay">
+                        <i class="fas fa-search-plus text-white text-3xl mb-4"></i>
+                        <h3 class="text-white text-lg font-bold text-center">Electricity Infrastructure</h3>
+                        <p class="text-white text-sm text-center mt-2">Power Distribution Network</p>
+                    </div>
+                </div>
+
+                <!-- Office & Events Images -->
+                <div class="gallery-item office" data-category="office">
+                    <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=600&h=400&fit=crop&crop=center" 
+                         alt="MDA Head Office Building" 
+                         class="w-full h-64 object-cover">
+                    <div class="gallery-overlay">
+                        <i class="fas fa-search-plus text-white text-3xl mb-4"></i>
+                        <h3 class="text-white text-lg font-bold text-center">MDA Head Office</h3>
+                        <p class="text-white text-sm text-center mt-2">Administrative Building</p>
+                    </div>
+                </div>
+
+                <div class="gallery-item office" data-category="office">
+                    <img src="https://images.unsplash.com/photo-1511632765486-a01980e01a18?w=600&h=400&fit=crop&crop=center" 
+                         alt="Official Meeting with Minister" 
+                         class="w-full h-64 object-cover">
+                    <div class="gallery-overlay">
+                        <i class="fas fa-search-plus text-white text-3xl mb-4"></i>
+                        <h3 class="text-white text-lg font-bold text-center">Official Meeting</h3>
+                        <p class="text-white text-sm text-center mt-2">Minister Visit & Planning</p>
+                    </div>
+                </div>
+
+                <div class="gallery-item office" data-category="office">
+                    <img src="https://images.unsplash.com/photo-1560472355-536de3962603?w=600&h=400&fit=crop&crop=center" 
+                         alt="Project Inauguration Ceremony" 
+                         class="w-full h-64 object-cover">
+                    <div class="gallery-overlay">
+                        <i class="fas fa-search-plus text-white text-3xl mb-4"></i>
+                        <h3 class="text-white text-lg font-bold text-center">Project Inauguration</h3>
+                        <p class="text-white text-sm text-center mt-2">Development Ceremony</p>
+                    </div>
+                </div>
+
+                <!-- Construction Images -->
+                <div class="gallery-item construction" data-category="construction">
+                    <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=600&h=400&fit=crop&crop=center" 
+                         alt="Construction Work in Progress" 
+                         class="w-full h-64 object-cover">
+                    <div class="gallery-overlay">
+                        <i class="fas fa-search-plus text-white text-3xl mb-4"></i>
+                        <h3 class="text-white text-lg font-bold text-center">Construction Progress</h3>
+                        <p class="text-white text-sm text-center mt-2">Ongoing Development Work</p>
+                    </div>
+                </div>
+
+                <div class="gallery-item construction" data-category="construction">
+                    <img src="https://images.unsplash.com/photo-1541976590-713941681591?w=600&h=400&fit=crop&crop=center" 
+                         alt="Heavy Machinery at Construction Site" 
+                         class="w-full h-64 object-cover">
+                    <div class="gallery-overlay">
+                        <i class="fas fa-search-plus text-white text-3xl mb-4"></i>
+                        <h3 class="text-white text-lg font-bold text-center">Construction Machinery</h3>
+                        <p class="text-white text-sm text-center mt-2">Modern Equipment Usage</p>
+                    </div>
+                </div>
+
+                <div class="gallery-item construction" data-category="construction">
+                    <img src="https://images.unsplash.com/photo-1590736969955-71cc94901144?w=600&h=400&fit=crop&crop=center" 
+                         alt="Foundation Work" 
+                         class="w-full h-64 object-cover">
+                    <div class="gallery-overlay">
+                        <i class="fas fa-search-plus text-white text-3xl mb-4"></i>
+                        <h3 class="text-white text-lg font-bold text-center">Foundation Work</h3>
+                        <p class="text-white text-sm text-center mt-2">Building Foundation Phase</p>
+                    </div>
+                </div>
+
+                <!-- Additional Housing Images -->
+                <div class="gallery-item housing" data-category="housing">
+                    <img src="https://images.unsplash.com/photo-1448630360428-65456885c650?w=600&h=400&fit=crop&crop=center" 
+                         alt="Residential Area Development" 
+                         class="w-full h-64 object-cover">
+                    <div class="gallery-overlay">
+                        <i class="fas fa-search-plus text-white text-3xl mb-4"></i>
+                        <h3 class="text-white text-lg font-bold text-center">Residential Development</h3>
+                        <p class="text-white text-sm text-center mt-2">Community Housing Project</p>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Statistics Section -->
+            <div class="mt-16 bg-white rounded-2xl shadow-xl p-8 md:p-12">
+                <div class="flex items-center mb-8">
+                    <div class="w-16 h-16 bg-gradient-to-br from-blue-600 to-blue-800 rounded-full flex items-center justify-center mr-6">
+                        <i class="fas fa-chart-bar text-white text-2xl"></i>
+                    </div>
+                    <div>
+                        <h2 class="text-3xl font-bold text-gray-800 mb-2">Development Statistics</h2>
+                        <div class="w-20 h-1 bg-blue-600"></div>
+                    </div>
+                </div>
+                
+                <div class="grid md:grid-cols-4 gap-8">
+                    <div class="text-center">
+                        <div class="text-4xl font-bold text-kpk-green mb-2">5,239</div>
+                        <div class="text-gray-600">Total Plots Developed</div>
+                    </div>
+                    <div class="text-center">
+                        <div class="text-4xl font-bold text-blue-600 mb-2">3</div>
+                        <div class="text-gray-600">Development Phases</div>
+                    </div>
+                    <div class="text-center">
+                        <div class="text-4xl font-bold text-green-600 mb-2">15+</div>
+                        <div class="text-gray-600">Years of Service</div>
+                    </div>
+                    <div class="text-center">
+                        <div class="text-4xl font-bold text-purple-600 mb-2">50+</div>
+                        <div class="text-gray-600">Completed Projects</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Image Modal -->
+    <div id="imageModal" class="modal">
+        <span class="close absolute top-4 right-8 text-white text-4xl cursor-pointer hover:text-gray-300" onclick="closeModal()">&times;</span>
+        <img id="modalImage" src="" alt="Gallery Image" class="modal-content">
+        <div id="imageCaption" class="text-white text-center mt-4 text-xl"></div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white pt-12 pb-6 mt-16">
+        <div class="container mx-auto px-4">
+            <div class="grid md:grid-cols-4 gap-8 mb-8">
+                <!-- About Us -->
+                <div>
+                    <h5 class="text-lg font-semibold mb-4 text-kpk-light-green">About Us</h5>
+                    <ul class="space-y-2">
+                        <li>
+                            <a href="about-mda.html" class="text-gray-300 hover:text-white flex items-center">
+                                <i class="fas fa-caret-right mr-2 text-kpk-light-green"></i>
+                                About MDA
+                            </a>
+                        </li>
+                        <li>
+                            <a href="mda-history.html" class="text-gray-300 hover:text-white flex items-center">
+                                <i class="fas fa-caret-right mr-2 text-kpk-light-green"></i>
+                                Our History
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" class="text-gray-300 hover:text-white flex items-center">
+                                <i class="fas fa-caret-right mr-2 text-kpk-light-green"></i>
+                                Mission & Vision
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Location Map -->
+                <div>
+                    <h5 class="text-lg font-semibold mb-4 text-kpk-light-green">Location</h5>
+                    <div class="bg-gray-700 rounded-lg p-4">
+                        <div class="aspect-w-16 aspect-h-12 bg-gray-600 rounded-lg flex items-center justify-center">
+                            <i class="fas fa-map-marker-alt text-4xl text-kpk-light-green"></i>
+                        </div>
+                        <p class="text-sm text-gray-300 mt-2">Sector-F, Sheikh Maltoon Town, Mardan, KPK</p>
+                    </div>
+                </div>
+
+                <!-- Resource Links -->
+                <div>
+                    <h5 class="text-lg font-semibold mb-4 text-kpk-light-green">Resources</h5>
+                    <ul class="space-y-2">
+                        <li>
+                            <a href="#" class="text-gray-300 hover:text-white flex items-center">
+                                <i class="fas fa-caret-right mr-2 text-kpk-light-green"></i>
+                                Public Notices
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" class="text-gray-300 hover:text-white flex items-center">
+                                <i class="fas fa-caret-right mr-2 text-kpk-light-green"></i>
+                                Annual Reports
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" class="text-gray-300 hover:text-white flex items-center">
+                                <i class="fas fa-caret-right mr-2 text-kpk-light-green"></i>
+                                Housing Schemes
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" class="text-gray-300 hover:text-white flex items-center">
+                                <i class="fas fa-caret-right mr-2 text-kpk-light-green"></i>
+                                Development Projects
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Contact Info -->
+                <div>
+                    <h5 class="text-lg font-semibold mb-4 text-kpk-light-green">Contact Information</h5>
+                    <ul class="space-y-3">
+                        <li class="flex items-start">
+                            <i class="fas fa-map-marker-alt text-kpk-light-green mr-3 mt-1"></i>
+                            <span class="text-gray-300 text-sm">
+                                Sector-F Sheikh Maltoon Town<br>
+                                Mardan, Khyber Pakhtunkhwa<br>
+                                Pakistan
+                            </span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-phone text-kpk-light-green mr-3"></i>
+                            <span class="text-gray-300 text-sm">
+                                Director Office: (0937) 9230433<br>
+                                MDA Exchange: (0937) 9230434<br>
+                                Fax: (0937) 9230435
+                            </span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-envelope text-kpk-light-green mr-3"></i>
+                            <span class="text-gray-300 text-sm">info@mda.gkp.pk</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- Footer Bottom -->
+            <div class="border-t border-gray-700 pt-6">
+                <div class="flex flex-col md:flex-row justify-between items-center">
+                    <p class="text-gray-400 text-sm mb-4 md:mb-0">
+                        <i class="fas fa-copyright mr-1"></i>
+                        Copyright 2025. All Rights Reserved by Mardan Development Authority.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-white">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white">
+                            <i class="fab fa-youtube"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+        const closeMobileMenu = document.getElementById('closeMobileMenu');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.remove('-translate-x-full');
+            mobileMenu.classList.add('translate-x-0');
+        });
+
+        closeMobileMenu.addEventListener('click', () => {
+            mobileMenu.classList.remove('translate-x-0');
+            mobileMenu.classList.add('-translate-x-full');
+        });
+
+        // Search functionality
+        document.getElementById('searchInput').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                const searchTerm = this.value;
+                if (searchTerm.trim()) {
+                    alert('Searching for: ' + searchTerm);
+                    // Here you would typically redirect to search results
+                }
+            }
+        });
+
+        // Filter functionality
+        const filterButtons = document.querySelectorAll('.filter-btn');
+        const galleryItems = document.querySelectorAll('.gallery-item');
+
+        filterButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                // Remove active class from all buttons
+                filterButtons.forEach(btn => btn.classList.remove('active'));
+                // Add active class to clicked button
+                button.classList.add('active');
+
+                const filterValue = button.getAttribute('data-filter');
+
+                galleryItems.forEach(item => {
+                    const itemCategory = item.getAttribute('data-category');
+                    
+                    if (filterValue === 'all' || itemCategory === filterValue) {
+                        item.style.display = 'block';
+                        // Add fade in animation
+                        item.style.opacity = '0';
+                        setTimeout(() => {
+                            item.style.opacity = '1';
+                        }, 100);
+                    } else {
+                        item.style.display = 'none';
+                    }
+                });
+            });
+        });
+
+        // Modal functionality
+        const modal = document.getElementById('imageModal');
+        const modalImg = document.getElementById('modalImage');
+        const captionText = document.getElementById('imageCaption');
+
+        // Add click event to all gallery images
+        document.querySelectorAll('.gallery-item img').forEach(img => {
+            img.addEventListener('click', function() {
+                modal.classList.add('active');
+                modalImg.src = this.src;
+                captionText.innerHTML = this.alt;
+            });
+        });
+
+        // Close modal function
+        function closeModal() {
+            modal.classList.remove('active');
+        }
+
+        // Close modal when clicking outside the image
+        modal.addEventListener('click', function(e) {
+            if (e.target === modal) {
+                closeModal();
+            }
+        });
+
+        // Close modal with Escape key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                closeModal();
+            }
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>

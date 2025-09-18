@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Downloads - Mardan Development Authority - Government of KPK</title>
+    <meta name="description" content="Download forms, documents, and resources from Mardan Development Authority - Government of KPK.">
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Font Awesome CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <!-- Custom Tailwind Configuration -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'kpk-green': '#2d5016',
+                        'kpk-light-green': '#4ade80',
+                        'kpk-dark': '#1f2937',
+                        'gov-blue': '#1e40af'
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+        
+        body {
+            font-family: 'Inter', system-ui, -apple-system, sans-serif;
+            line-height: 1.6;
+        }
+        
+        .government-header {
+            background: linear-gradient(135deg, #2d5016 0%, #059669 50%, #10b981 100%);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .government-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('https://media.istockphoto.com/id/1874045716/photo/takht-i-bahi-buddhist-monastery-in-mardan-pakistan.jpg?s=612x612&w=0&k=20&c=KQOsUGn8c0GCbDZYW5EPzHVwmqHe3qE_rfh8qIRBcEE=') center/cover;
+            opacity: 0.1;
+            z-index: 0;
+        }
+        
+        .government-header > * {
+            position: relative;
+            z-index: 1;
+        }
+        
+        .navbar-shadow {
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+        }
+        
+        .download-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .download-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Top Bar -->
+    <div class="bg-gray-900 text-white py-3 border-b border-gray-700">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col sm:flex-row justify-between items-center gap-2">
+                <div class="flex flex-col sm:flex-row space-y-2 sm:space-y-0 sm:space-x-6">
+                    <span class="flex items-center text-sm font-medium">
+                        <i class="fas fa-phone mr-2 text-green-400"></i> +92 937 9230433
+                    </span>
+                    <span class="flex items-center text-sm font-medium">
+                        <i class="fas fa-envelope mr-2 text-green-400"></i> info@mda.gkp.pk
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <header class="government-header text-white">
+        <div class="container mx-auto px-4 py-8 md:py-12">
+            <div class="flex flex-col xl:flex-row items-center justify-between gap-8">
+                <!-- Logo Section -->
+                <div class="flex flex-col sm:flex-row items-center text-center sm:text-left">
+                    <div class="relative mb-4 sm:mb-0 sm:mr-6">
+                        <img src="http://mda.gkp.pk/uploads/logo_image/1747913518logo.PNG" 
+                             alt="KPK Development Authority Official Logo" 
+                             class="w-24 h-24 md:w-28 md:h-28 object-contain bg-white rounded-xl shadow-2xl p-2 border-4 border-green-200">
+                    </div>
+                    <div>
+                        <h1 class="text-2xl sm:text-3xl lg:text-4xl xl:text-5xl font-bold mb-2 leading-tight">
+                            Mardan Development Authority
+                        </h1>
+                        <p class="text-sm sm:text-base lg:text-lg text-green-200 font-medium">
+                            Government of Khyber Pakhtunkhwa
+                        </p>
+                    </div>
+                </div>
+                
+                <!-- Government Info -->
+                <div class="hidden lg:block text-center xl:text-right">
+                    <div class="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20">
+                        <h3 class="text-lg font-bold mb-3 text-green-100">Official Authority</h3>
+                        <div class="space-y-2 text-sm">
+                            <p class="flex items-center justify-center xl:justify-end">
+                                <i class="fas fa-building mr-2 text-green-300"></i>
+                                Ministry of Local Government
+                            </p>
+                            <p class="flex items-center justify-center xl:justify-end">
+                                <i class="fas fa-map-marker-alt mr-2 text-green-300"></i>
+                                Mardan, Khyber Pakhtunkhwa
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Navigation Menu -->
+    <nav class="bg-white navbar-shadow sticky top-0 z-40">
+        <div class="container mx-auto px-4">
+            <div class="flex items-center justify-between">
+                <!-- Mobile Menu Button -->
+                <button id="mobileMenuBtn" class="lg:hidden p-3 text-gray-600 hover:text-kpk-green transition-colors">
+                    <i class="fas fa-bars text-xl"></i>
+                </button>
+                
+                <!-- Desktop Navigation -->
+                <ul class="hidden lg:flex items-center space-x-0 py-0 w-full justify-center">
+                    <li><a href="index.html" class="text-gray-700 hover:text-kpk-green font-semibold px-6 py-5 transition-all duration-300 hover:bg-green-50">HOME</a></li>
+                    <li class="relative group">
+                        <a href="#" class="text-gray-700 hover:text-kpk-green font-semibold flex items-center px-6 py-5 transition-all duration-300 hover:bg-green-50">
+                            ABOUT US <i class="fas fa-chevron-down ml-2 text-xs"></i>
+                        </a>
+                        <ul class="absolute top-full left-0 bg-white shadow-xl rounded-lg py-3 w-52 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50 border border-gray-200">
+                            <li><a href="about-mda.html" class="block px-6 py-3 text-gray-600 hover:bg-kpk-light-green hover:text-white transition-colors">About MDA</a></li>
+                            <li><a href="mda-history.html" class="block px-6 py-3 text-gray-600 hover:bg-kpk-light-green hover:text-white transition-colors">History</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="services.html" class="text-gray-700 hover:text-kpk-green font-semibold px-6 py-5 transition-all duration-300 hover:bg-green-50">SERVICES</a></li>
+                    <li><a href="projects.html" class="text-gray-700 hover:text-kpk-green font-semibold px-6 py-5 transition-all duration-300 hover:bg-green-50">PROJECTS</a></li>
+                    <li><a href="#" class="text-gray-700 hover:text-kpk-green font-semibold px-6 py-5 transition-all duration-300 hover:bg-green-50">E-TENDERING</a></li>
+                    <li><a href="gallery.html" class="text-gray-700 hover:text-kpk-green font-semibold px-6 py-5 transition-all duration-300 hover:bg-green-50">GALLERY</a></li>
+                    <li><a href="download.html" class="text-kpk-green bg-green-50 font-semibold px-6 py-5 transition-all duration-300">DOWNLOADS</a></li>
+                    <li><a href="contact-us.html" class="text-gray-700 hover:text-kpk-green font-semibold px-6 py-5 transition-all duration-300 hover:bg-green-50">CONTACT US</a></li>
+                </ul>
+
+                <!-- Mobile Menu -->
+                <div id="mobileMenu" class="lg:hidden fixed top-0 left-0 w-full h-full bg-white z-50 transform -translate-x-full transition-transform duration-300">
+                    <div class="p-6 border-b border-gray-200 bg-gradient-to-r from-kpk-green to-green-600">
+                        <div class="flex justify-between items-center">
+                            <h3 class="text-xl font-bold text-white">Navigation Menu</h3>
+                            <button id="closeMobileMenu" class="text-white hover:text-green-200 p-2">
+                                <i class="fas fa-times text-2xl"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <ul class="p-6 space-y-6">
+                        <li><a href="index.html" class="block text-gray-700 hover:text-kpk-green font-semibold text-lg py-3 border-b border-gray-100 transition-colors">HOME</a></li>
+                        <li><a href="about-mda.html" class="block text-gray-700 hover:text-kpk-green font-semibold text-lg py-3 border-b border-gray-100 transition-colors">ABOUT MDA</a></li>
+                        <li><a href="mda-history.html" class="block text-gray-700 hover:text-kpk-green font-semibold text-lg py-3 border-b border-gray-100 transition-colors">HISTORY</a></li>
+                        <li><a href="services.html" class="block text-gray-700 hover:text-kpk-green font-semibold text-lg py-3 border-b border-gray-100 transition-colors">SERVICES</a></li>
+                        <li><a href="projects.html" class="block text-gray-700 hover:text-kpk-green font-semibold text-lg py-3 border-b border-gray-100 transition-colors">PROJECTS</a></li>
+                        <li><a href="#" class="block text-gray-700 hover:text-kpk-green font-semibold text-lg py-3 border-b border-gray-100 transition-colors">E-TENDERING</a></li>
+                        <li><a href="gallery.html" class="block text-gray-700 hover:text-kpk-green font-semibold text-lg py-3 border-b border-gray-100 transition-colors">GALLERY</a></li>
+                        <li><a href="download.html" class="block text-kpk-green font-semibold text-lg py-3 border-b border-gray-100 transition-colors">DOWNLOADS</a></li>
+                        <li><a href="contact-us.html" class="block text-gray-700 hover:text-kpk-green font-semibold text-lg py-3 border-b border-gray-100 transition-colors">CONTACT US</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="container mx-auto px-4 py-16">
+        <div class="max-w-6xl mx-auto">
+            <!-- Page Header -->
+            <div class="text-center mb-16">
+                <h1 class="text-5xl font-bold text-gray-800 mb-6">Downloads</h1>
+                <div class="w-32 h-1 bg-kpk-green mx-auto mb-6"></div>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                    Access important forms, documents, and resources from Mardan Development Authority. Download official documents, application forms, and regulatory guidelines.
+                </p>
+            </div>
+
+            <!-- Downloads Categories -->
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
+                <!-- Application Forms -->
+                <div class="download-card bg-white rounded-xl shadow-lg p-8 border border-gray-100">
+                    <div class="flex items-center justify-center w-16 h-16 bg-blue-100 rounded-xl mb-6 mx-auto">
+                        <i class="fas fa-file-alt text-2xl text-blue-600"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-4 text-center">Application Forms</h3>
+                    <p class="text-gray-600 mb-6 text-center">Download official application forms for various services and schemes.</p>
+                    <div class="space-y-3">
+                        <a href="#" class="flex items-center justify-between p-3 bg-gray-50 rounded-lg hover:bg-blue-50 transition-colors group">
+                            <span class="text-gray-700 group-hover:text-blue-600">Plot Allotment Form</span>
+                            <i class="fas fa-download text-gray-400 group-hover:text-blue-600"></i>
+                        </a>
+                        <a href="#" class="flex items-center justify-between p-3 bg-gray-50 rounded-lg hover:bg-blue-50 transition-colors group">
+                            <span class="text-gray-700 group-hover:text-blue-600">NOC Application</span>
+                            <i class="fas fa-download text-gray-400 group-hover:text-blue-600"></i>
+                        </a>
+                        <a href="#" class="flex items-center justify-between p-3 bg-gray-50 rounded-lg hover:bg-blue-50 transition-colors group">
+                            <span class="text-gray-700 group-hover:text-blue-600">Transfer Form</span>
+                            <i class="fas fa-download text-gray-400 group-hover:text-blue-600"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Rules & Regulations -->
+                <div class="download-card bg-white rounded-xl shadow-lg p-8 border border-gray-100">
+                    <div class="flex items-center justify-center w-16 h-16 bg-green-100 rounded-xl mb-6 mx-auto">
+                        <i class="fas fa-gavel text-2xl text-green-600"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-4 text-center">Rules & Regulations</h3>
+                    <p class="text-gray-600 mb-6 text-center">Access official rules, regulations, and policy documents.</p>
+                    <div class="space-y-3">
+                        <a href="#" class="flex items-center justify-between p-3 bg-gray-50 rounded-lg hover:bg-green-50 transition-colors group">
+                            <span class="text-gray-700 group-hover:text-green-600">Building Bylaws</span>
+                            <i class="fas fa-download text-gray-400 group-hover:text-green-600"></i>
+                        </a>
+                        <a href="#" class="flex items-center justify-between p-3 bg-gray-50 rounded-lg hover:bg-green-50 transition-colors group">
+                            <span class="text-gray-700 group-hover:text-green-600">Development Rules</span>
+                            <i class="fas fa-download text-gray-400 group-hover:text-green-600"></i>
+                        </a>
+                        <a href="#" class="flex items-center justify-between p-3 bg-gray-50 rounded-lg hover:bg-green-50 transition-colors group">
+                            <span class="text-gray-700 group-hover:text-green-600">Policy Guidelines</span>
+                            <i class="fas fa-download text-gray-400 group-hover:text-green-600"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Scheme Documents -->
+                <div class="download-card bg-white rounded-xl shadow-lg p-8 border border-gray-100">
+                    <div class="flex items-center justify-center w-16 h-16 bg-purple-100 rounded-xl mb-6 mx-auto">
+                        <i class="fas fa-map text-2xl text-purple-600"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-4 text-center">Scheme Documents</h3>
+                    <p class="text-gray-600 mb-6 text-center">Download housing scheme layouts, maps, and related documents.</p>
+                    <div class="space-y-3">
+                        <a href="#" class="flex items-center justify-between p-3 bg-gray-50 rounded-lg hover:bg-purple-50 transition-colors group">
+                            <span class="text-gray-700 group-hover:text-purple-600">Layout Plans</span>
+                            <i class="fas fa-download text-gray-400 group-hover:text-purple-600"></i>
+                        </a>
+                        <a href="#" class="flex items-center justify-between p-3 bg-gray-50 rounded-lg hover:bg-purple-50 transition-colors group">
+                            <span class="text-gray-700 group-hover:text-purple-600">Site Maps</span>
+                            <i class="fas fa-download text-gray-400 group-hover:text-purple-600"></i>
+                        </a>
+                        <a href="#" class="flex items-center justify-between p-3 bg-gray-50 rounded-lg hover:bg-purple-50 transition-colors group">
+                            <span class="text-gray-700 group-hover:text-purple-600">Brochures</span>
+                            <i class="fas fa-download text-gray-400 group-hover:text-purple-600"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Tender Documents -->
+                <div class="download-card bg-white rounded-xl shadow-lg p-8 border border-gray-100">
+                    <div class="flex items-center justify-center w-16 h-16 bg-red-100 rounded-xl mb-6 mx-auto">
+                        <i class="fas fa-briefcase text-2xl text-red-600"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-4 text-center">Tender Documents</h3>
+                    <p class="text-gray-600 mb-6 text-center">Access current and archived tender documents and specifications.</p>
+                    <div class="space-y-3">
+                        <a href="#" class="flex items-center justify-between p-3 bg-gray-50 rounded-lg hover:bg-red-50 transition-colors group">
+                            <span class="text-gray-700 group-hover:text-red-600">Current Tenders</span>
+                            <i class="fas fa-download text-gray-400 group-hover:text-red-600"></i>
+                        </a>
+                        <a href="#" class="flex items-center justify-between p-3 bg-gray-50 rounded-lg hover:bg-red-50 transition-colors group">
+                            <span class="text-gray-700 group-hover:text-red-600">BOQ Templates</span>
+                            <i class="fas fa-download text-gray-400 group-hover:text-red-600"></i>
+                        </a>
+                        <a href="#" class="flex items-center justify-between p-3 bg-gray-50 rounded-lg hover:bg-red-50 transition-colors group">
+                            <span class="text-gray-700 group-hover:text-red-600">Terms & Conditions</span>
+                            <i class="fas fa-download text-gray-400 group-hover:text-red-600"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Annual Reports -->
+                <div class="download-card bg-white rounded-xl shadow-lg p-8 border border-gray-100">
+                    <div class="flex items-center justify-center w-16 h-16 bg-yellow-100 rounded-xl mb-6 mx-auto">
+                        <i class="fas fa-chart-line text-2xl text-yellow-600"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-4 text-center">Annual Reports</h3>
+                    <p class="text-gray-600 mb-6 text-center">Download annual reports and performance summaries.</p>
+                    <div class="space-y-3">
+                        <a href="#" class="flex items-center justify-between p-3 bg-gray-50 rounded-lg hover:bg-yellow-50 transition-colors group">
+                            <span class="text-gray-700 group-hover:text-yellow-600">Annual Report 2024</span>
+                            <i class="fas fa-download text-gray-400 group-hover:text-yellow-600"></i>
+                        </a>
+                        <a href="#" class="flex items-center justify-between p-3 bg-gray-50 rounded-lg hover:bg-yellow-50 transition-colors group">
+                            <span class="text-gray-700 group-hover:text-yellow-600">Annual Report 2023</span>
+                            <i class="fas fa-download text-gray-400 group-hover:text-yellow-600"></i>
+                        </a>
+                        <a href="#" class="flex items-center justify-between p-3 bg-gray-50 rounded-lg hover:bg-yellow-50 transition-colors group">
+                            <span class="text-gray-700 group-hover:text-yellow-600">Performance Summary</span>
+                            <i class="fas fa-download text-gray-400 group-hover:text-yellow-600"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Miscellaneous -->
+                <div class="download-card bg-white rounded-xl shadow-lg p-8 border border-gray-100">
+                    <div class="flex items-center justify-center w-16 h-16 bg-indigo-100 rounded-xl mb-6 mx-auto">
+                        <i class="fas fa-folder text-2xl text-indigo-600"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-4 text-center">Miscellaneous</h3>
+                    <p class="text-gray-600 mb-6 text-center">Other important documents and resources.</p>
+                    <div class="space-y-3">
+                        <a href="#" class="flex items-center justify-between p-3 bg-gray-50 rounded-lg hover:bg-indigo-50 transition-colors group">
+                            <span class="text-gray-700 group-hover:text-indigo-600">Fee Schedule</span>
+                            <i class="fas fa-download text-gray-400 group-hover:text-indigo-600"></i>
+                        </a>
+                        <a href="#" class="flex items-center justify-between p-3 bg-gray-50 rounded-lg hover:bg-indigo-50 transition-colors group">
+                            <span class="text-gray-700 group-hover:text-indigo-600">Contact Directory</span>
+                            <i class="fas fa-download text-gray-400 group-hover:text-indigo-600"></i>
+                        </a>
+                        <a href="#" class="flex items-center justify-between p-3 bg-gray-50 rounded-lg hover:bg-indigo-50 transition-colors group">
+                            <span class="text-gray-700 group-hover:text-indigo-600">FAQ Document</span>
+                            <i class="fas fa-download text-gray-400 group-hover:text-indigo-600"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Download Instructions -->
+            <div class="bg-white rounded-xl shadow-lg p-8 border border-gray-100">
+                <h2 class="text-2xl font-bold text-gray-800 mb-6 text-center">Download Instructions</h2>
+                <div class="grid md:grid-cols-3 gap-6 text-center">
+                    <div>
+                        <div class="flex items-center justify-center w-12 h-12 bg-blue-100 rounded-full mb-4 mx-auto">
+                            <span class="text-xl font-bold text-blue-600">1</span>
+                        </div>
+                        <h3 class="font-semibold text-gray-800 mb-2">Select Document</h3>
+                        <p class="text-gray-600 text-sm">Choose the document you need from the categories above.</p>
+                    </div>
+                    <div>
+                        <div class="flex items-center justify-center w-12 h-12 bg-green-100 rounded-full mb-4 mx-auto">
+                            <span class="text-xl font-bold text-green-600">2</span>
+                        </div>
+                        <h3 class="font-semibold text-gray-800 mb-2">Click to Download</h3>
+                        <p class="text-gray-600 text-sm">Click on the download link to save the file to your device.</p>
+                    </div>
+                    <div>
+                        <div class="flex items-center justify-center w-12 h-12 bg-purple-100 rounded-full mb-4 mx-auto">
+                            <span class="text-xl font-bold text-purple-600">3</span>
+                        </div>
+                        <h3 class="font-semibold text-gray-800 mb-2">Open & Use</h3>
+                        <p class="text-gray-600 text-sm">Open the downloaded file with appropriate software.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid md:grid-cols-4 gap-8">
+                <!-- About Section -->
+                <div>
+                    <h3 class="text-xl font-bold mb-4">Mardan Development Authority</h3>
+                    <p class="text-gray-400 text-sm mb-4">
+                        Dedicated to the planned development and growth of Mardan through sustainable urban planning and efficient service delivery.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Quick Links -->
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Quick Links</h4>
+                    <ul class="space-y-2">
+                        <li><a href="index.html" class="text-gray-400 hover:text-white text-sm transition-colors">Home</a></li>
+                        <li><a href="about-mda.html" class="text-gray-400 hover:text-white text-sm transition-colors">About MDA</a></li>
+                        <li><a href="services.html" class="text-gray-400 hover:text-white text-sm transition-colors">Services</a></li>
+                        <li><a href="projects.html" class="text-gray-400 hover:text-white text-sm transition-colors">Projects</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Services -->
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Services</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-white text-sm transition-colors">Plot Allotment</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white text-sm transition-colors">NOC Services</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white text-sm transition-colors">Development Plans</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white text-sm transition-colors">Building Approvals</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Contact Info -->
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Contact Info</h4>
+                    <ul class="space-y-2">
+                        <li class="flex items-start text-sm text-gray-400">
+                            <i class="fas fa-map-marker-alt mt-1 mr-2 text-green-400"></i>
+                            Mardan, Khyber Pakhtunkhwa, Pakistan
+                        </li>
+                        <li class="flex items-center text-sm text-gray-400">
+                            <i class="fas fa-phone mr-2 text-green-400"></i>
+                            +92 937 9230433
+                        </li>
+                        <li class="flex items-center text-sm text-gray-400">
+                            <i class="fas fa-envelope mr-2 text-green-400"></i>
+                            info@mda.gkp.pk
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-700 mt-8 pt-8 text-center">
+                <p class="text-gray-400 text-sm">
+                    © 2025 Mardan Development Authority. All rights reserved. | Government of Khyber Pakhtunkhwa
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+        const closeMobileMenu = document.getElementById('closeMobileMenu');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.remove('-translate-x-full');
+            mobileMenu.classList.add('translate-x-0');
+        });
+
+        closeMobileMenu.addEventListener('click', () => {
+            mobileMenu.classList.remove('translate-x-0');
+            mobileMenu.classList.add('-translate-x-full');
+        });
+    </script>
+</body>
+</html>
