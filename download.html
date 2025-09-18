@@ -40,6 +40,9 @@
             background: linear-gradient(135deg, #2d5016 0%, #059669 50%, #10b981 100%);
             position: relative;
             overflow: hidden;
+            min-height: 80px;
+            padding-top: 2px;
+            padding-bottom: 2px;
         }
         
         .government-header::before {
@@ -90,41 +93,39 @@
         </div>
     </div>
 
-    <!-- Header -->
-    <header class="government-header text-white">
-        <div class="container mx-auto px-4 py-8 md:py-12">
-            <div class="flex flex-col xl:flex-row items-center justify-between gap-8">
+ <header class="government-header text-white">
+    <div class="container mx-auto px-4 py-3 md:py-4">
+            <div class="flex flex-col xl:flex-row items-center justify-between gap-6">
                 <!-- Logo Section -->
                 <div class="flex flex-col sm:flex-row items-center text-center sm:text-left">
                     <div class="relative mb-4 sm:mb-0 sm:mr-6">
-                        <img src="http://mda.gkp.pk/uploads/logo_image/1747913518logo.PNG" 
-                             alt="KPK Development Authority Official Logo" 
-                             class="w-24 h-24 md:w-28 md:h-28 object-contain bg-white rounded-xl shadow-2xl p-2 border-4 border-green-200">
+                    <img src="http://mda.gkp.pk/uploads/logo_image/1747913518logo.PNG" 
+                        alt="KPK Development Authority Official Logo" 
+                        class="w-16 h-16 md:w-20 md:h-20 object-contain bg-white rounded-xl shadow-2xl p-2 border-4 border-green-200">
                     </div>
-                    <div>
-                        <h1 class="text-2xl sm:text-3xl lg:text-4xl xl:text-5xl font-bold mb-2 leading-tight">
-                            Mardan Development Authority
-                        </h1>
-                        <p class="text-sm sm:text-base lg:text-lg text-green-200 font-medium">
-                            Government of Khyber Pakhtunkhwa
-                        </p>
+                    <div class="leading-tight">
+                        <h5 class="text-lg md:text-xl xl:text-2xl font-black mb-1 tracking-wide">MARDAN DEVELOPMENT AUTHORITY</h5>
+                       
+                        <p class="text-xs md:text-sm text-green-200 font-medium uppercase tracking-wider">Government of Khyber Pakhtunkhwa</p>
+                        <div class="mt-3 flex items-center justify-center sm:justify-start">
+                            <div class="w-12 md:w-16 h-1 bg-white mr-3"></div>
+                            <span class="text-xs text-green-200 font-medium"></span>
+                        </div>
                     </div>
                 </div>
                 
-                <!-- Government Info -->
-                <div class="hidden lg:block text-center xl:text-right">
-                    <div class="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20">
-                        <h3 class="text-lg font-bold mb-3 text-green-100">Official Authority</h3>
-                        <div class="space-y-2 text-sm">
-                            <p class="flex items-center justify-center xl:justify-end">
-                                <i class="fas fa-building mr-2 text-green-300"></i>
-                                Ministry of Local Government
-                            </p>
-                            <p class="flex items-center justify-center xl:justify-end">
-                                <i class="fas fa-map-marker-alt mr-2 text-green-300"></i>
-                                Mardan, Khyber Pakhtunkhwa
-                            </p>
-                        </div>
+                <!-- Search Box -->
+                <div class="w-full max-w-lg xl:max-w-sm">
+                    <div class="flex bg-white rounded-lg overflow-hidden shadow-xl">
+                        <input 
+                            type="text" 
+                            placeholder="Search Tenders, Projects, Services..." 
+                            class="flex-1 px-4 py-3 md:py-4 text-gray-700 focus:outline-none focus:ring-2 focus:ring-green-300"
+                            id="searchInput"
+                        >
+                        <button class="bg-kpk-green hover:bg-green-700 px-6 py-3 md:py-4 text-white transition-all duration-300 hover:shadow-lg">
+                            <i class="fas fa-search"></i>
+                        </button>
                     </div>
                 </div>
             </div>
