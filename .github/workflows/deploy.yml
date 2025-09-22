@@ -1,9 +1,9 @@
-name: FTP Deploy to cPanel
+name: FTP Deploy to cPanel (HTML Website)
 
 on:
   push:
     branches:
-    - main  # Deploy on push to the main branch
+    - main  # Trigger deployment on push to the main branch
 
 jobs:
   deploy:
@@ -15,19 +15,19 @@ jobs:
 
     - name: Set up FTP deploy
       run: |
-        sudo apt-get install -y lftp
+        sudo apt-get install -y lftp  # Install lftp for FTP deployment
 
     - name: Deploy HTML files via FTP
       env:
-        FTP_SERVER: ${{ secrets.FTP_SERVER }}
-        FTP_USERNAME: ${{ secrets.FTP_USERNAME }}
-        FTP_PASSWORD: ${{ secrets.FTP_PASSWORD }}
-        FTP_TARGET_DIR: "/public_html/mda"  # Adjust as needed based on your actual directory
+        FTP_SERVER: ${{ secrets.FTP_SERVER }}        # FTP server (e.g., ftp.awamisawari.com)
+        FTP_USERNAME: ${{ secrets.FTP_USERNAME }}    # FTP username
+        FTP_PASSWORD: ${{ secrets.FTP_PASSWORD }}    # FTP password
+        FTP_TARGET_DIR: "/public_html/mda"           # The directory on cPanel where files will be uploaded
       run: |
         lftp -f "
         open ftp://$FTP_SERVER
         user $FTP_USERNAME $FTP_PASSWORD
-        cd $FTP_TARGET_DIR  # Navigate to your subdomain folder
-        mirror -R ./  # Upload all files in the repository to the FTP server
+        cd $FTP_TARGET_DIR      # Ensure we are in the correct remote directory
+        mirror -R ./ $FTP_TARGET_DIR/  # Upload the contents of the current directory (local) to the remote folder
         quit
         "
