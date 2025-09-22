@@ -22,7 +22,7 @@ jobs:
         FTP_SERVER: ${{ secrets.FTP_SERVER }}
         FTP_USERNAME: ${{ secrets.FTP_USERNAME }}
         FTP_PASSWORD: ${{ secrets.FTP_PASSWORD }}
-        FTP_TARGET_DIR: "/public_html/mda"  # Correct path for your subdomain directory
+        FTP_TARGET_DIR: "/public_html/mda/"  # Correct path for your subdomain directory
       run: |
         lftp -f "
         open ftp://$FTP_SERVER
