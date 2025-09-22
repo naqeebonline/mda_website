@@ -24,7 +24,7 @@ jobs:
           lftp -e "mirror -R ./public_html /public_html/mda; quit" -u ${{ secrets.FTP_USERNAME }},${{ secrets.FTP_PASSWORD }} ${{
             secrets.FTP_HOSTNAME }}
 
-      # Use GitHub secrets to securely store FTP credentials
+      # Use GitHub secrets to securely store FTP credentialss
       env:
         FTP_USERNAME: ${{ secrets.FTP_USERNAME }}
         FTP_PASSWORD: ${{ secrets.FTP_PASSWORD }}
