@@ -3,7 +3,7 @@ name: FTP Deploy
 on:
   push:
     branches:
-      - main  # or your branch name
+      - main  # or your branch namess
 
 jobs:
   ftp-deploy:
