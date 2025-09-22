@@ -1,34 +1,29 @@
-name: Deploy HTML to Server
+name: FTP Deploy
 
 on:
   push:
     branches:
-      - main  # Trigger workflow on pushes to the main branch
+      - main  # or your branch name
 
 jobs:
-  deploy:
+  ftp-deploy:
     runs-on: ubuntu-latest
-
     steps:
-    # Step 1: Checkout code from GitHub repository
     - name: Checkout code
-      uses: actions/checkout@v2
+      uses: actions/checkout@v3
 
-    # Step 2: Install FTP deployment tool (lftp)
-    - name: Install lftp
-      run: sudo apt-get install -y lftp
-
-    # Step 3: List files in the working directory to verify the path
-    - name: List files in the working directory
-      run: |
-        ls -l ./public_html
-
-    # Step 4: Deploy the HTML files via FTP
-    - name: Deploy HTML to server
-      run: |
-        lftp -u ${{ secrets.FTP_USERNAME }},${{ secrets.FTP_PASSWORD }} ${{
-          secrets.FTP_HOSTNAME }} -e "mirror -R ./public_html /public_html/mda; quit"
-      env:
-        FTP_USERNAME: ${{ secrets.FTP_USERNAME }}
-        FTP_PASSWORD: ${{ secrets.FTP_PASSWORD }}
-        FTP_HOSTNAME: ${{ secrets.FTP_HOSTNAME }}
+    - name: FTP Deploy
+      uses: SamKirkland/FTP-Deploy-Action@v4.3.4
+      with:
+        server: ftp.awamisawari.com 
+        username: ${{ secrets.FTP_USERNAME }}
+        password: ${{ secrets.FTP_PASSWORD }}
+        # server-dir: /trust.nebosh-azurewebsites.com/
+        local-dir: ./ # Adjust as necessary
+        server-dir: /  # Updated path
+        state-name: .ftp-deploy-sync-state.json 
+        exclude: |
+            **/vendor/**
+            **/node_modules/**
+            .env
+            **/.git/**
