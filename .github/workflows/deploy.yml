@@ -3,7 +3,7 @@ name: FTP Deploy to cPanel (HTML Website)
 on:
   push:
     branches:
-    - main  # Trigger deployment on push to the main branchs
+    - main  # Trigger deployment on push to the main branch
 
 jobs:
   deploy:
@@ -23,12 +23,12 @@ jobs:
         FTP_USERNAME: ${{ secrets.FTP_USERNAME }}  # FTP username
         FTP_PASSWORD: ${{ secrets.FTP_PASSWORD }}  # FTP password
         FTP_PORT: "21"  # FTP port (optional if using the default FTP port)
-        FTP_TARGET_DIR: "/public_html/mda/"  # The folder to upload files
+        FTP_TARGET_DIR: "/public_html/mda/"  # Correct folder path with trailing slash
       run: |
         lftp -f "
         set ssl:verify-certificate no      # Disable SSL certificate verification
         open -u $FTP_USERNAME,$FTP_PASSWORD -p $FTP_PORT $FTP_SERVER
-        cd $FTP_TARGET_DIR                 # Navigate to the target folder on the FTP server
-        mirror -R ./                       # Upload the contents of the current repository to the FTP server
+        cd $FTP_TARGET_DIR                 # Navigate to the correct folder on the FTP server
+        mirror -R ./ $FTP_TARGET_DIR/      # Upload the contents of the current directory to the FTP server
         quit
         "
