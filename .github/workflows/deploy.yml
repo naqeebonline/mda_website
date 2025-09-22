@@ -3,7 +3,7 @@ name: FTP Deploy to cPanel
 on:
   push:
     branches:
-    - main  # or the branch you want to trigger the deployment from
+    - main  # Deploy on push to the main branch
 
 jobs:
   deploy:
@@ -17,16 +17,17 @@ jobs:
       run: |
         sudo apt-get install -y lftp
 
-    - name: Deploy Laravel app via FTP
+    - name: Deploy HTML files via FTP
       env:
         FTP_SERVER: ${{ secrets.FTP_SERVER }}
         FTP_USERNAME: ${{ secrets.FTP_USERNAME }}
         FTP_PASSWORD: ${{ secrets.FTP_PASSWORD }}
-        FTP_TARGET_DIR: "/public_html/mda/"  # Correct path for your subdomain directory
+        FTP_TARGET_DIR: "/public_html/mda"  # Adjust as needed based on your actual directory
       run: |
         lftp -f "
         open ftp://$FTP_SERVER
         user $FTP_USERNAME $FTP_PASSWORD
-        mirror -R ./ $FTP_TARGET_DIR/  # Ensure trailing slash for proper directory mirroring
+        cd $FTP_TARGET_DIR  # Navigate to your subdomain folder
+        mirror -R ./  # Upload all files in the repository to the FTP server
         quit
         "
