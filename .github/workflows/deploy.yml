@@ -3,7 +3,7 @@ name: FTP Deploy to cPanel (HTML Website)
 on:
   push:
     branches:
-    - main  # Trigger deployment on push to the main branch
+    - main  # Trigger deployment on push to the main branchs
 
 jobs:
   deploy:
