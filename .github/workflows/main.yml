@@ -1,0 +1,31 @@
+name: Deploy HTML to Server
+
+on:
+  push:
+    branches:
+      - main  # Trigger the workflow only on push to the main branch
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Checkout code from the repository
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      # Install FTP deploy tool
+      - name: Install FTP deploy tool
+        run: sudo apt-get install lftp
+
+      # Deploy files via FTP
+      - name: Deploy via FTP
+        run: |
+          lftp -e "mirror -R ./public_html /public_html/mda; quit" -u ${{ secrets.FTP_USERNAME }},${{ secrets.FTP_PASSWORD }} ${{
+            secrets.FTP_HOSTNAME }}
+
+      # Use GitHub secrets to securely store FTP credentials
+      env:
+        FTP_USERNAME: ${{ secrets.FTP_USERNAME }}
+        FTP_PASSWORD: ${{ secrets.FTP_PASSWORD }}
+        FTP_HOSTNAME: 145.223.108.252
