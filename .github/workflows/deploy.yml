@@ -23,7 +23,7 @@ jobs:
         FTP_USERNAME: ${{ secrets.FTP_USERNAME }}  # FTP username
         FTP_PASSWORD: ${{ secrets.FTP_PASSWORD }}  # FTP password
         FTP_PORT: "21"  # FTP port (optional if using the default FTP port)
-        FTP_TARGET_DIR: "/public_html/mda/"  # Correct folder path with trailing slash
+        FTP_TARGET_DIR: "/public_html/mda/"  # The folder to upload files to
       run: |
         lftp -f "
         set ssl:verify-certificate no      # Disable SSL certificate verification
