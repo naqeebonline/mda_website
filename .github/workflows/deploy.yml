@@ -19,15 +19,15 @@ jobs:
 
     - name: Deploy HTML files via FTP
       env:
-        FTP_SERVER: ${{ secrets.FTP_SERVER }}        # FTP server (e.g., ftp.awamisawari.com)
-        FTP_USERNAME: ${{ secrets.FTP_USERNAME }}    # FTP username
-        FTP_PASSWORD: ${{ secrets.FTP_PASSWORD }}    # FTP password
-        FTP_TARGET_DIR: "/public_html/mda/"           # The directory on cPanel where files will be uploaded
+        FTP_SERVER: "145.223.108.252"  # FTP server (hostname or IP)
+        FTP_USERNAME: ${{ secrets.FTP_USERNAME }}  # FTP username
+        FTP_PASSWORD: ${{ secrets.FTP_PASSWORD }}  # FTP password
+        FTP_PORT: "21"  # FTP port (optional if using the default FTP port)
+        FTP_TARGET_DIR: "/public_html/mda"  # The folder to upload files
       run: |
         lftp -f "
-        open ftp://$FTP_SERVER
-        user $FTP_USERNAME $FTP_PASSWORD
-        cd $FTP_TARGET_DIR      # Ensure we are in the correct remote directory
-        mirror -R ./ $FTP_TARGET_DIR/  # Upload the contents of the current directory (local) to the remote folder
+        open -u $FTP_USERNAME,$FTP_PASSWORD -p $FTP_PORT $FTP_SERVER
+        cd $FTP_TARGET_DIR       # Navigate to the target folder on the FTP server
+        mirror -R ./             # Upload the contents of the current repository to the FTP server
         quit
         "
