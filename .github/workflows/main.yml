@@ -18,13 +18,16 @@ jobs:
     - name: Install lftp
       run: sudo apt-get install -y lftp
 
-    # Step 3: Deploy the HTML files via FTP
+    # Step 3: List files in the working directory to verify the path
+    - name: List files in the working directory
+      run: |
+        ls -l ./public_html
+
+    # Step 4: Deploy the HTML files via FTP
     - name: Deploy HTML to server
       run: |
         lftp -u ${{ secrets.FTP_USERNAME }},${{ secrets.FTP_PASSWORD }} ${{
           secrets.FTP_HOSTNAME }} -e "mirror -R ./public_html /public_html/mda; quit"
-
-      # Use GitHub secrets to securely store FTP credentials
       env:
         FTP_USERNAME: ${{ secrets.FTP_USERNAME }}
         FTP_PASSWORD: ${{ secrets.FTP_PASSWORD }}
