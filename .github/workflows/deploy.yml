@@ -22,7 +22,7 @@ jobs:
         FTP_SERVER: ${{ secrets.FTP_SERVER }}        # FTP server (e.g., ftp.awamisawari.com)
         FTP_USERNAME: ${{ secrets.FTP_USERNAME }}    # FTP username
         FTP_PASSWORD: ${{ secrets.FTP_PASSWORD }}    # FTP password
-        FTP_TARGET_DIR: "/public_html/mda"           # The directory on cPanel where files will be uploaded
+        FTP_TARGET_DIR: "/public_html/mda/"           # The directory on cPanel where files will be uploaded
       run: |
         lftp -f "
         open ftp://$FTP_SERVER
